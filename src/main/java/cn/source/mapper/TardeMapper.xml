@@ -93,38 +93,4 @@
     set tName = #{tname,jdbcType=VARCHAR}
     where tId = #{tid,jdbcType=INTEGER}
   </update>
-  <insert id="insertBatchSelective" parameterType="java.util.List">
-    insert into tarde
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="list[0].tid!=null">
-        tId,
-      </if>
-      <if test="list[0].tname!=null">
-        tName,
-      </if>
-    </trim>
-     values 
-    <foreach collection="list" index="index" item="item" separator=",">
-      <trim prefix=" (" suffix=")" suffixOverrides=",">
-        <if test="item.tid!=null">
-          #{item.tid,jdbcType=INTEGER},
-        </if>
-        <if test="item.tname!=null">
-          #{item.tname,jdbcType=VARCHAR},
-        </if>
-      </trim>
-    </foreach>
-  </insert>
-  <update id="updateBatchByPrimaryKeySelective" parameterType="java.util.List">
-    <foreach collection="list" index="index" item="item" separator=";">
-      update tarde
-      <set>
-        <if test="item.tname!=null">
-          tName=#{item.tname,jdbcType=VARCHAR},
-        </if>
-      </set>
-      where 
-      tId = #{item.tid,jdbcType=INTEGER}
-    </foreach>
-  </update>
 </mapper>

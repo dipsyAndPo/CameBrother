@@ -104,47 +104,4 @@
       mId = #{mid,jdbcType=INTEGER}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
-  <insert id="insertBatchSelective" parameterType="java.util.List">
-    insert into star
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="list[0].sid!=null">
-        sid,
-      </if>
-      <if test="list[0].uid!=null">
-        uId,
-      </if>
-      <if test="list[0].mid!=null">
-        mId,
-      </if>
-    </trim>
-     values 
-    <foreach collection="list" index="index" item="item" separator=",">
-      <trim prefix=" (" suffix=")" suffixOverrides=",">
-        <if test="item.sid!=null">
-          #{item.sid,jdbcType=INTEGER},
-        </if>
-        <if test="item.uid!=null">
-          #{item.uid,jdbcType=INTEGER},
-        </if>
-        <if test="item.mid!=null">
-          #{item.mid,jdbcType=INTEGER},
-        </if>
-      </trim>
-    </foreach>
-  </insert>
-  <update id="updateBatchByPrimaryKeySelective" parameterType="java.util.List">
-    <foreach collection="list" index="index" item="item" separator=";">
-      update star
-      <set>
-        <if test="item.uid!=null">
-          uId=#{item.uid,jdbcType=INTEGER},
-        </if>
-        <if test="item.mid!=null">
-          mId=#{item.mid,jdbcType=INTEGER},
-        </if>
-      </set>
-      where 
-      sid = #{item.sid,jdbcType=INTEGER}
-    </foreach>
-  </update>
 </mapper>

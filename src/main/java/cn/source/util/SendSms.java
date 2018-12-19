@@ -1,79 +1,79 @@
 package cn.source.util;
 
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
-import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
-import com.aliyuncs.http.MethodType;
-import com.aliyuncs.profile.DefaultProfile;
-import com.aliyuncs.profile.IClientProfile;
+//import com.aliyuncs.DefaultAcsClient;
+//import com.aliyuncs.IAcsClient;
+//import com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;
+//import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+//import com.aliyuncs.exceptions.ClientException;
+//import com.aliyuncs.exceptions.ServerException;
+//import com.aliyuncs.http.MethodType;
+//import com.aliyuncs.profile.DefaultProfile;
+//import com.aliyuncs.profile.IClientProfile;
 
 public class SendSms {
 	
 	
-	public void aa() {
-		String sms = sms("15703708538", "", "");
-		System.out.println("");
-		
-		
-	}
+//	public void aa() {
+//		String sms = sms("15703708538", "", "");
+//		System.out.println("");
+//		
+//		
+//	}
 	
-	public String sms(String phoneNum,String SignName,String TemplateCode) {
-		//ÉèÖÃ³¬Ê±Ê±¼ä-¿É×ÔÐÐµ÷Õû
-		System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
-		System.setProperty("sun.net.client.defaultReadTimeout", "10000");
-		//³õÊ¼»¯ascClientÐèÒªµÄ¼¸¸ö²ÎÊý
-		final String product = "Dysmsapi";//¶ÌÐÅAPI²úÆ·Ãû³Æ£¨¶ÌÐÅ²úÆ·Ãû¹Ì¶¨£¬ÎÞÐèÐÞ¸Ä£©
-		final String domain = "dysmsapi.aliyuncs.com";//¶ÌÐÅAPI²úÆ·ÓòÃû£¨½Ó¿ÚµØÖ·¹Ì¶¨£¬ÎÞÐèÐÞ¸Ä£©
-		//Ìæ»»³ÉÄãµÄAK
-		final String accessKeyId = "LTAIvrBG06MGk3Tn";//ÄãµÄaccessKeyId,²Î¿¼±¾ÎÄµµ²½Öè2
-		final String accessKeySecret = "8FxjvHUEBIJo4dTb5BLyRoWojlQXUG";//ÄãµÄaccessKeySecret£¬²Î¿¼±¾ÎÄµµ²½Öè2
-		//³õÊ¼»¯ascClient,ÔÝÊ±²»Ö§³Ö¶àregion£¨ÇëÎðÐÞ¸Ä£©
-		IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId,
-		accessKeySecret);
-		try {
-			DefaultProfile.addEndpoint("cn-hangzhou", "cn-hangzhou", product, domain);
-		} catch (ClientException e1) {
-			e1.printStackTrace();
-			return "³õÊ¼»¯ascClient³ö´í£¡";
-		}
-		IAcsClient acsClient = new DefaultAcsClient(profile);
-		 //×é×°ÇëÇó¶ÔÏó
-		 SendSmsRequest request = new SendSmsRequest();
-		 //Ê¹ÓÃpostÌá½»
-		 request.setMethod(MethodType.POST);
-		 //±ØÌî:´ý·¢ËÍÊÖ»úºÅ¡£Ö§³ÖÒÔ¶ººÅ·Ö¸ôµÄÐÎÊ½½øÐÐÅúÁ¿µ÷ÓÃ£¬ÅúÁ¿ÉÏÏÞÎª1000¸öÊÖ»úºÅÂë,ÅúÁ¿µ÷ÓÃÏà¶ÔÓÚµ¥Ìõµ÷ÓÃ¼°Ê±ÐÔÉÔÓÐÑÓ³Ù,ÑéÖ¤ÂëÀàÐÍµÄ¶ÌÐÅÍÆ¼öÊ¹ÓÃµ¥Ìõµ÷ÓÃµÄ·½Ê½£»·¢ËÍ¹ú¼Ê/¸Û°ÄÌ¨ÏûÏ¢Ê±£¬½ÓÊÕºÅÂë¸ñÊ½Îª¹ú¼ÊÇøºÅ+ºÅÂë£¬Èç¡°85200000000¡±
-		 request.setPhoneNumbers(phoneNum);
-		 //±ØÌî:¶ÌÐÅÇ©Ãû-¿ÉÔÚ¶ÌÐÅ¿ØÖÆÌ¨ÖÐÕÒµ½
-		 request.setSignName(SignName);
-		 //±ØÌî:¶ÌÐÅÄ£°å-¿ÉÔÚ¶ÌÐÅ¿ØÖÆÌ¨ÖÐÕÒµ½£¬·¢ËÍ¹ú¼Ê/¸Û°ÄÌ¨ÏûÏ¢Ê±£¬ÇëÊ¹ÓÃ¹ú¼Ê/¸Û°ÄÌ¨¶ÌÐÅÄ£°æ
-		 request.setTemplateCode(TemplateCode);
-		 //¿ÉÑ¡:Ä£°åÖÐµÄ±äÁ¿Ìæ»»JSON´®,ÈçÄ£°åÄÚÈÝÎª"Ç×°®µÄ${name},ÄúµÄÑéÖ¤ÂëÎª${code}"Ê±,´Ë´¦µÄÖµÎª
-		 //ÓÑÇéÌáÊ¾:Èç¹ûJSONÖÐÐèÒª´ø»»ÐÐ·û,Çë²ÎÕÕ±ê×¼µÄJSONÐ­Òé¶Ô»»ÐÐ·ûµÄÒªÇó,±ÈÈç¶ÌÐÅÄÚÈÝÖÐ°üº¬\r\nµÄÇé¿öÔÚJSONÖÐÐèÒª±íÊ¾³É\\r\\n,·ñÔò»áµ¼ÖÂJSONÔÚ·þÎñ¶Ë½âÎöÊ§°Ü
-		 request.setTemplateParam("{\"name\":\"Tom\", \"code\":\"123\"}");
-		 //¿ÉÑ¡-ÉÏÐÐ¶ÌÐÅÀ©Õ¹Âë(À©Õ¹Âë×Ö¶Î¿ØÖÆÔÚ7Î»»òÒÔÏÂ£¬ÎÞÌØÊâÐèÇóÓÃ»§ÇëºöÂÔ´Ë×Ö¶Î)
-		 //request.setSmsUpExtendCode("90997");
-		 //¿ÉÑ¡:outIdÎªÌá¹©¸øÒµÎñ·½À©Õ¹×Ö¶Î,×îÖÕÔÚ¶ÌÐÅ»ØÖ´ÏûÏ¢ÖÐ½«´ËÖµ´ø»Ø¸øµ÷ÓÃÕß
-		 request.setOutId("yourOutId");
-		//ÇëÇóÊ§°ÜÕâÀï»áÅ×ClientExceptionÒì³£
-		SendSmsResponse sendSmsResponse;
-		try {
-			sendSmsResponse = acsClient.getAcsResponse(request);
-		} catch (ServerException e) {
-			e.printStackTrace();
-			return "·þÎñÆ÷Òì³£";
-		} catch (ClientException e) {
-			e.printStackTrace();
-			return "ÇëÇóÊ§°Ü";
-		}
-		if(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
-		//ÇëÇó³É¹¦
-			System.out.println("Ïò"+phoneNum+"·¢ËÍÑéÖ¤Âë£¬³É¹¦£¡");
-		}
-		
-		return sendSmsResponse.getCode();
-	}
+//	public String sms(String phoneNum,String SignName,String TemplateCode) {
+//		//ï¿½ï¿½ï¿½Ã³ï¿½Ê±Ê±ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½
+//		System.setProperty("sun.net.client.defaultConnectTimeout", "10000");
+//		System.setProperty("sun.net.client.defaultReadTimeout", "10000");
+//		//ï¿½ï¿½Ê¼ï¿½ï¿½ascClientï¿½ï¿½Òªï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		final String product = "Dysmsapi";//ï¿½ï¿½ï¿½ï¿½APIï¿½ï¿½Æ·ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Å²ï¿½Æ·ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½
+//		final String domain = "dysmsapi.aliyuncs.com";//ï¿½ï¿½ï¿½ï¿½APIï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿Úµï¿½Ö·ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½
+//		//ï¿½æ»»ï¿½ï¿½ï¿½ï¿½ï¿½AK
+//		final String accessKeyId = "LTAIvrBG06MGk3Tn";//ï¿½ï¿½ï¿½accessKeyId,ï¿½Î¿ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½2
+//		final String accessKeySecret = "8FxjvHUEBIJo4dTb5BLyRoWojlQXUG";//ï¿½ï¿½ï¿½accessKeySecretï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½2
+//		//ï¿½ï¿½Ê¼ï¿½ï¿½ascClient,ï¿½ï¿½Ê±ï¿½ï¿½Ö§ï¿½Ö¶ï¿½regionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä£ï¿½
+//		IClientProfile profile = DefaultProfile.getProfile("cn-hangzhou", accessKeyId,
+//		accessKeySecret);
+//		try {
+//			DefaultProfile.addEndpoint("cn-hangzhou", "cn-hangzhou", product, domain);
+//		} catch (ClientException e1) {
+//			e1.printStackTrace();
+//			return "ï¿½ï¿½Ê¼ï¿½ï¿½ascClientï¿½ï¿½ï¿½ï¿½";
+//		}
+//		IAcsClient acsClient = new DefaultAcsClient(profile);
+//		 //ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		 SendSmsRequest request = new SendSmsRequest();
+//		 //Ê¹ï¿½ï¿½postï¿½á½»
+//		 request.setMethod(MethodType.POST);
+//		 //ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Å¡ï¿½Ö§ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Å·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª1000ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½,ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¶ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½/ï¿½Û°ï¿½Ì¨ï¿½ï¿½Ï¢Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õºï¿½ï¿½ï¿½ï¿½Ê½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ë£¬ï¿½ç¡°85200000000ï¿½ï¿½
+//		 request.setPhoneNumbers(phoneNum);
+//		 //ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½-ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½Å¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½Òµï¿½
+//		 request.setSignName(SignName);
+//		 //ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½-ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½Å¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½/ï¿½Û°ï¿½Ì¨ï¿½ï¿½Ï¢Ê±ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹ï¿½ï¿½ï¿½/ï¿½Û°ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+//		 request.setTemplateCode(TemplateCode);
+//		 //ï¿½ï¿½Ñ¡:Ä£ï¿½ï¿½ï¿½ÐµÄ±ï¿½ï¿½ï¿½ï¿½æ»»JSONï¿½ï¿½,ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª"ï¿½×°ï¿½ï¿½ï¿½${name},ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Îª${code}"Ê±,ï¿½Ë´ï¿½ï¿½ï¿½ÖµÎª
+//		 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾:ï¿½ï¿½ï¿½JSONï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½,ï¿½ï¿½ï¿½ï¿½Õ±ï¿½×¼ï¿½ï¿½JSONÐ­ï¿½ï¿½Ô»ï¿½ï¿½Ð·ï¿½ï¿½ï¿½Òªï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½\r\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JSONï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ê¾ï¿½ï¿½\\r\\n,ï¿½ï¿½ï¿½ï¿½áµ¼ï¿½ï¿½JSONï¿½Ú·ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
+//		 request.setTemplateParam("{\"name\":\"Tom\", \"code\":\"123\"}");
+//		 //ï¿½ï¿½Ñ¡-ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½(ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ö¶Î¿ï¿½ï¿½ï¿½ï¿½ï¿½7Î»ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Ö¶ï¿½)
+//		 //request.setSmsUpExtendCode("90997");
+//		 //ï¿½ï¿½Ñ¡:outIdÎªï¿½á¹©ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ö¶ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½Å»ï¿½Ö´ï¿½ï¿½Ï¢ï¿½Ð½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		 request.setOutId("yourOutId");
+//		//ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ClientExceptionï¿½ì³£
+//		SendSmsResponse sendSmsResponse;
+//		try {
+//			sendSmsResponse = acsClient.getAcsResponse(request);
+//		} catch (ServerException e) {
+//			e.printStackTrace();
+//			return "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£";
+//		} catch (ClientException e) {
+//			e.printStackTrace();
+//			return "ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½";
+//		}
+//		if(sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
+//		//ï¿½ï¿½ï¿½ï¿½É¹ï¿½
+//			System.out.println("ï¿½ï¿½"+phoneNum+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ë£¬ï¿½É¹ï¿½ï¿½ï¿½");
+//		}
+//		
+//		return sendSmsResponse.getCode();
+//	}
 
 }

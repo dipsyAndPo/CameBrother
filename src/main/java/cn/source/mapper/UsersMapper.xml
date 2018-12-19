@@ -104,47 +104,4 @@
       uPwd = #{upwd,jdbcType=VARCHAR}
     where uId = #{uid,jdbcType=INTEGER}
   </update>
-  <insert id="insertBatchSelective" parameterType="java.util.List">
-    insert into users
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="list[0].uid!=null">
-        uId,
-      </if>
-      <if test="list[0].uname!=null">
-        uName,
-      </if>
-      <if test="list[0].upwd!=null">
-        uPwd,
-      </if>
-    </trim>
-     values 
-    <foreach collection="list" index="index" item="item" separator=",">
-      <trim prefix=" (" suffix=")" suffixOverrides=",">
-        <if test="item.uid!=null">
-          #{item.uid,jdbcType=INTEGER},
-        </if>
-        <if test="item.uname!=null">
-          #{item.uname,jdbcType=VARCHAR},
-        </if>
-        <if test="item.upwd!=null">
-          #{item.upwd,jdbcType=VARCHAR},
-        </if>
-      </trim>
-    </foreach>
-  </insert>
-  <update id="updateBatchByPrimaryKeySelective" parameterType="java.util.List">
-    <foreach collection="list" index="index" item="item" separator=";">
-      update users
-      <set>
-        <if test="item.uname!=null">
-          uName=#{item.uname,jdbcType=VARCHAR},
-        </if>
-        <if test="item.upwd!=null">
-          uPwd=#{item.upwd,jdbcType=VARCHAR},
-        </if>
-      </set>
-      where 
-      uId = #{item.uid,jdbcType=INTEGER}
-    </foreach>
-  </update>
 </mapper>

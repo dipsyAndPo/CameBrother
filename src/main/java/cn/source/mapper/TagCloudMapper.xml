@@ -104,47 +104,4 @@
       amount = #{amount,jdbcType=INTEGER}
     where tId = #{tid,jdbcType=INTEGER}
   </update>
-  <insert id="insertBatchSelective" parameterType="java.util.List">
-    insert into tagcloud
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="list[0].tid!=null">
-        tId,
-      </if>
-      <if test="list[0].tname!=null">
-        tName,
-      </if>
-      <if test="list[0].amount!=null">
-        amount,
-      </if>
-    </trim>
-     values 
-    <foreach collection="list" index="index" item="item" separator=",">
-      <trim prefix=" (" suffix=")" suffixOverrides=",">
-        <if test="item.tid!=null">
-          #{item.tid,jdbcType=INTEGER},
-        </if>
-        <if test="item.tname!=null">
-          #{item.tname,jdbcType=VARCHAR},
-        </if>
-        <if test="item.amount!=null">
-          #{item.amount,jdbcType=INTEGER},
-        </if>
-      </trim>
-    </foreach>
-  </insert>
-  <update id="updateBatchByPrimaryKeySelective" parameterType="java.util.List">
-    <foreach collection="list" index="index" item="item" separator=";">
-      update tagcloud
-      <set>
-        <if test="item.tname!=null">
-          tName=#{item.tname,jdbcType=VARCHAR},
-        </if>
-        <if test="item.amount!=null">
-          amount=#{item.amount,jdbcType=INTEGER},
-        </if>
-      </set>
-      where 
-      tId = #{item.tid,jdbcType=INTEGER}
-    </foreach>
-  </update>
 </mapper>
