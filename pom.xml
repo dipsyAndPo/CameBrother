@@ -6,7 +6,7 @@
 	<artifactId>CameBrother</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CameBrother Maven Webapp</name>
+	<name>CameBrother</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -249,12 +249,7 @@
 					<overwrite>true</overwrite>
 				</configuration>
 				<executions>
-					<execution>
-						<id>Generate MyBatis Artifacts</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
+				
 				</executions>
 			</plugin>
 
