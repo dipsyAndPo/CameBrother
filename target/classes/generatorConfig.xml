@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<!DOCTYPE generatorConfiguration    
+            PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"    
+            "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- ojdbc6.jar已经直接放到项目中,无需指定了,同时mysql驱动包也一样,这里同样无需指定 -->
+
+	<context id="sqlserverTables" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+		<property name="javaFileEncoding" value="UTF-8" />
+
+
+		<!-- 生成一对一配置 -->
+		<plugin type="cc.bandaotixi.plugins.OneToOnePlugin" />
+		<!-- 生成一对多配置 -->
+		<plugin type="cc.bandaotixi.plugins.OneToManyPlugin" />
+		<!-- 生成批量配置 -->
+		<plugin type="cc.bandaotixi.plugins.BatchInsertPlugin" />
+		<plugin type="cc.bandaotixi.plugins.BatchUpdatePlugin" />
+		<!-- 生成的pojo，将implements Serializable -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+		<!-- 生成注释配置 -->
+		<commentGenerator
+			type="cc.bandaotixi.plugins.BDTCommentGenerator">
+			<property name="javaFileEncoding" value="UTF-8" />
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+
+
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost/camebrother" userId="root"
+			password="root">
+		</jdbcConnection>
+
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="cn.source.pojo"
+			targetProject=".\src\main\java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="cn.source.mapper"
+			targetProject=".\src\main\java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="cn.source.mapper" targetProject=".\src\main\java">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<table tableName="dict" domainObjectName="Dict">
+			<generatedKey column="dict_id" sqlStatement="MySql"
+				identity="true" />
+				
+		</table>
+
+		<table tableName="users" domainObjectName="Users"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="false">
+			<property name="my.isgen.usekeys" value="true" />
+			<generatedKey column="uId" sqlStatement="JDBC" />
+		</table>
+		<table tableName="notice" domainObjectName="Notice"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="false">
+			<property name="my.isgen.usekeys" value="true" />
+			<generatedKey column="nId" sqlStatement="JDBC" />
+
+		</table>
+		<table tableName="tarde" domainObjectName="Tarde"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="false">
+			<property name="my.isgen.usekeys" value="true" />
+			<generatedKey column="tId" sqlStatement="JDBC" />
+			
+		</table>
+		<table tableName="mould" domainObjectName="Mould"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="false">
+			<property name="my.isgen.usekeys" value="true" />
+			<generatedKey column="mId" sqlStatement="JDBC" />
+		</table>
+		<table tableName="tagCloud" domainObjectName="TagCloud"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="false">
+			<property name="my.isgen.usekeys" value="true" />
+			<generatedKey column="tId" sqlStatement="JDBC" />
+
+		</table>
+		<table tableName="star" domainObjectName="Star"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="false">
+			<property name="my.isgen.usekeys" value="true" />
+			<generatedKey column="sId" sqlStatement="JDBC" />
+
+		</table>
+
+
+
+
+	</context>
+</generatorConfiguration>
