@@ -12,11 +12,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.source.mapper.UsersMapper;
 import cn.source.pojo.Users;
-import cn.source.pojo.UsersExample;
-import cn.source.pojo.UsersExample.Criteria;
 
 
-@RunWith(SpringJUnit4ClassRunner.class) //表示继承了SpringJUnit4ClassRunner类
+@RunWith(SpringJUnit4ClassRunner.class) //琛ㄧず缁ф壙浜哠pringJUnit4ClassRunner绫�
 @ContextConfiguration(locations = { "classpath*:applicationContext.xml" })
 public class test1 {
 	
@@ -37,45 +35,36 @@ public class test1 {
 	public void test11() {
 		Users user=new Users();
 		
-		//增加
-//		user.setUname("yyt");//赋值
-//		user.setUpwd("yyt");//赋值
+		//澧炲姞
+//		user.setUname("yyt");//璧嬪��
+//		user.setUpwd("yyt");//璧嬪��
 //		int insert = um.insert(user);
-//		Syste.out.println("增加了"+insert+"条数据。主键是"+user.getUid());
+//		Syste.out.println("澧炲姞浜�"+insert+"鏉℃暟鎹�備富閿槸"+user.getUid());
 		
-		//删除
+		//鍒犻櫎
 //		int deleteByPrimaryKey = um.deleteByPrimaryKey(1);
-//		System.out.println("删除了"+deleteByPrimaryKey+"条数据");
+//		System.out.println("鍒犻櫎浜�"+deleteByPrimaryKey+"鏉℃暟鎹�");
 		
-		//根据object修改（每个数值都不能为空）
+		//鏍规嵁object淇敼锛堟瘡涓暟鍊奸兘涓嶈兘涓虹┖锛�
 //		user.setUid(2);
 //		user.setUname("aaa");
 //		user.setUpwd("bbb");
 //		int updateByPrimaryKey = um.updateByPrimaryKey(user);
-//		System.out.println("修改了"+updateByPrimaryKey+"条数据");
+//		System.out.println("淇敼浜�"+updateByPrimaryKey+"鏉℃暟鎹�");
 		
-		//传入主键和要修改的数据（动态sql）
+		//浼犲叆涓婚敭鍜岃淇敼鐨勬暟鎹紙鍔ㄦ�乻ql锛�
 //		user.setUid(2);
 //		user.setUname("ddd");
 //		int updateByPrimaryKeySelective = um.updateByPrimaryKeySelective(user);
-//		System.out.println("修改了"+updateByPrimaryKeySelective+"条数据");
+//		System.out.println("淇敼浜�"+updateByPrimaryKeySelective+"鏉℃暟鎹�");
 		
-		//根据主键查询
+		//鏍规嵁涓婚敭鏌ヨ
 //		Users selectByPrimaryKey = um.selectByPrimaryKey(2);
 //		System.out.println(selectByPrimaryKey);
 		
-		//根据Exanple查询
-		UsersExample ue=new UsersExample();//先创建  实体example类 然后设置查询规则
-		ue.setOrderByClause("uId desc");//设置排序   asc升序,desc降序排列
-		ue.setDistinct(false);//去除重复,true是选择不重复记录,false反之
-		UsersExample.Criteria cri=ue.createCriteria();//构造自定义查询条件
-		cri.andUnameIsNotNull();//查询不是null的
+		//鏍规嵁Exanple鏌ヨ
 		
 		
-		List<Users> selectByExample = um.selectByExample(ue);
-		for (Users users : selectByExample) {
-			System.out.println(users.getUname());
-		}
 	}
 	
 	
@@ -85,7 +74,7 @@ public class test1 {
 //		user.setUname("yyt");
 //		user.setUpwd("yyt");
 //		int insert = um.insert(user);
-//		System.out.println("增加了"+insert+"条数据。主键是"+user.getUid());
+//		System.out.println("澧炲姞浜�"+insert+"鏉℃暟鎹�備富閿槸"+user.getUid());
 //	}
 
 }

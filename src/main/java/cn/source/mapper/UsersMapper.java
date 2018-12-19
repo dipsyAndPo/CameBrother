@@ -1,7 +1,6 @@
 package cn.source.mapper;
 
 import cn.source.pojo.Users;
-import cn.source.pojo.UsersExample;
 import java.util.List;
 
 public interface UsersMapper {
@@ -11,7 +10,7 @@ public interface UsersMapper {
 
     int insertSelective(Users record);
 
-    List<Users> selectByExample(UsersExample example);
+    List<Users> selectByExample();
 
     Users selectByPrimaryKey(Integer uid);
 

@@ -1,7 +1,6 @@
 package cn.source.mapper;
 
 import cn.source.pojo.Star;
-import cn.source.pojo.StarExample;
 import java.util.List;
 
 public interface StarMapper {
@@ -11,7 +10,7 @@ public interface StarMapper {
 
     int insertSelective(Star record);
 
-    List<Star> selectByExample(StarExample example);
+    List<Star> selectByExample();
 
     Star selectByPrimaryKey(Integer sid);
 

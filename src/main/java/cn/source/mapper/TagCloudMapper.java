@@ -1,7 +1,6 @@
 package cn.source.mapper;
 
 import cn.source.pojo.TagCloud;
-import cn.source.pojo.TagCloudExample;
 import java.util.List;
 
 public interface TagCloudMapper {
@@ -11,7 +10,7 @@ public interface TagCloudMapper {
 
     int insertSelective(TagCloud record);
 
-    List<TagCloud> selectByExample(TagCloudExample example);
+    List<TagCloud> selectByExample();
 
     TagCloud selectByPrimaryKey(Integer tid);
 

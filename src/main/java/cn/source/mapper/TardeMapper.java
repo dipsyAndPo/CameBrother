@@ -1,7 +1,6 @@
 package cn.source.mapper;
 
 import cn.source.pojo.Tarde;
-import cn.source.pojo.TardeExample;
 import java.util.List;
 
 public interface TardeMapper {
@@ -11,7 +10,7 @@ public interface TardeMapper {
 
     int insertSelective(Tarde record);
 
-    List<Tarde> selectByExample(TardeExample example);
+    List<Tarde> selectByExample();
 
     Tarde selectByPrimaryKey(Integer tid);
 

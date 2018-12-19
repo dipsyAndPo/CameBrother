@@ -1,7 +1,6 @@
 package cn.source.mapper;
 
 import cn.source.pojo.Mould;
-import cn.source.pojo.MouldExample;
 import java.util.List;
 
 public interface MouldMapper {
