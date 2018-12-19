@@ -22,7 +22,5 @@ public interface TardeMapper {
   	@Update("update tarde set tName=#{tname} where tId=#{tid}")
     int updateByPrimaryKeySelective(Tarde record);
 
-    int updateByPrimaryKey(Tarde record);
-    int insertSelective(Tarde record);
-    Tarde selectByPrimaryKey(Integer tid);
+   
 }

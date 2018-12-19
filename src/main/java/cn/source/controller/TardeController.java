@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.source.pojo.Tarde;
@@ -16,8 +18,8 @@ public class TardeController {
 	@Autowired
 	TardeService tardeService;
 	
-	//²éÑ¯ËùÓÐÐÐÒµ
-	@RequestMapping("selectByExample")
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ
+	@RequestMapping(value="selectByExample",method=RequestMethod.GET)
 	public ModelAndView selectByExample() {
 		ModelAndView mav = new ModelAndView();
 		List<Tarde> tardes = tardeService.selectByExample();
@@ -40,10 +42,9 @@ public class TardeController {
 		return mav;
 	}
 	@RequestMapping("updateByPrimaryKeySelective")
-	public ModelAndView updateByPrimaryKeySelective(Tarde record) {
-		ModelAndView mav = new ModelAndView();
+	@ResponseBody
+	public String updateByPrimaryKeySelective(Tarde record) {
 		tardeService.updateByPrimaryKeySelective(record);
-		mav.setViewName("success");
-		return mav;
+		return "success";
 	}
 }
