@@ -5,6 +5,7 @@ import java.util.List;
 
 public interface MouldMapper {
 	
+	
     int deleteByPrimaryKey(Integer mid);
 
     int insert(Mould record);
