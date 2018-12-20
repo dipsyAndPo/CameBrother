@@ -16,6 +16,11 @@ public interface MouldMapper {
 			@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
     })
 	public List<Mould> selectMouldlist(Integer tid);
+	@Select("select * from mould")
+	@Results({
+		@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
+	})
+	public List<Mould> selectAllMould();
 	//,label=#{label},praise=#{praise},tread=#{tread},img=#{img},logo=#{logo},preview=#{preview},download=#{download}
 	//ÐÞ¸Ä1.
 	@Update("update mould set mname=#{mname} where mId=#{mid}")

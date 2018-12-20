@@ -10,7 +10,7 @@ public class Mould {
     private Tarde tarde;
     
     private List<Star> starList;
-
+    
     private String label;
 
     private Integer praise;

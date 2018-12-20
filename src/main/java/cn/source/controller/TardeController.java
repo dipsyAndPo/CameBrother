@@ -18,7 +18,6 @@ public class TardeController {
 	@Autowired
 	TardeService tardeService;
 	
-	//��ѯ������ҵ
 	@RequestMapping(value="selectByExample",method=RequestMethod.GET)
 	public ModelAndView selectByExample() {
 		ModelAndView mav = new ModelAndView();
@@ -44,9 +43,7 @@ public class TardeController {
 	@RequestMapping("updateByPrimaryKeySelective")
 	@ResponseBody
 	public String updateByPrimaryKeySelective(Tarde record) {
-		ModelAndView mav = new ModelAndView();
 		tardeService.updateByPrimaryKeySelective(record);
-		mav.setViewName("success");
 		tardeService.updateByPrimaryKeySelective(record);
 		return "success";
 	}
