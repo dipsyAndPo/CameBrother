@@ -179,19 +179,6 @@
 
 
 
-<<<<<<< HEAD
-
-
-
-
-		
-=======
-		<dependency>
-
-			<groupId>org.freemarker</groupId>
-
-			<artifactId>freemarker</artifactId>
->>>>>>> 566772e6d216c746c69abfe1dc93bcd0cf3f74ed
 
 
 	</dependencies>
