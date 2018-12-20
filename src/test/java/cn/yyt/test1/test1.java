@@ -10,8 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import cn.source.mapper.MouldMapper;
 import cn.source.mapper.UsersMapper;
+import cn.source.pojo.Mould;
+import cn.source.pojo.Tarde;
 import cn.source.pojo.Users;
+import cn.source.service.MouldService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class) //琛ㄧず缁ф壙浜哠pringJUnit4ClassRunner绫�
@@ -19,7 +23,8 @@ import cn.source.pojo.Users;
 public class test1 {
 	
 	@Autowired UsersMapper um;
-	
+	@Autowired MouldMapper mou;
+	@Autowired MouldService ms;
 	@Before
 	public void before() {
 		
@@ -30,6 +35,16 @@ public class test1 {
 		
 	}
 	
+	@Test
+	public void test() {
+		List<Mould> list = ms.selectAllMould();
+		System.out.println(list);
+		for (Mould mould : list) {
+			System.out.println(mould.getImg());
+			Tarde tarde = mould.getTarde();
+			System.out.println(tarde.getTname());
+		}
+	}
 	
 	@Test
 	public void test11() {
