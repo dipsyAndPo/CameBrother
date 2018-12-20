@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+<title>详情</title>
+<link rel="stylesheet" href="css/global.css" type="text/css" />
+<link rel="stylesheet" href="css/style1.css" type="text/css" />
+<link rel="stylesheet" href="css/flipmenu.css" type="text/css" />
+<link href="css/quanping.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery.scrollto.js"></script><!--案例控制置顶-->
+<script type="text/javascript" src="js/flipmenu-min.js"></script>
+<script type="text/javascript" language="javascript" src="js/index2.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var menu1 = new Flipmenu("flip_menu1");
+		var menu2 = new Flipmenu("flip_menu2");
+	});
+</script>
+<script type="text/javascript" src="js/jQueryRotateCompressed.js"></script>
+<link rel="stylesheet" href="css/style_05.css" type="text/css" />
+<!--[if lt IE 7 ]>
+<script>
+    DD_belatedPNG.fix('div,img,a,span'); 
+</script>
+<![endif]-->
+</head>
+<body scroll="no">
+<div id="metop">
+  <div id="header"> 
+    <div class="common">
+      <div class="logos"><a href="index.html"><img src="images/lg.png"/></a></div>
+      <div class="navs">
+        <ul id="flip_menu1">
+          <li><A href="contact.html">联系</A></li>
+          <li><A href="about.html">关于</A></li>      
+          <li><A href="group.html">服务</A></li>
+          <li><A href="experience.html">体验</A></li>
+          <li><A href="superiority.html">优势</A></li>
+          <li><A href="works.html">案例</A></li>
+          <li><A href="index.html">首 页</A></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div id="metop2">
+  <div id="header2">
+    <div class="head_left">
+      <div class="logo"><a href="index.html"><img src="images/lg.png"/></a></div>
+    </div>
+    <div class="head_right"><a href="javascript:;" class="open_menu"></a></div>
+  </div>
+</div>
+
+<!--顶部导航-->
+<div class="service c_bg1" >
+	<div class="service_main" align="center" >
+    	<div class="ser_01">
+            <div class="bn_01">
+                <h2>html5 canvas风中的火焰动画特效</h2>
+                <span>基于canvas绘制逼真的被风吹动的火焰燃烧动画特效。ps：本地要在localhost正常演示。</span>
+                <p>热门标签</p>
+            </div>
+        </div>
+        <img src="img/bg.jpg" style="width: 500px;height: 600px; margin-top: -100px;"></img>
+        <br />
+       <button type="#" style="background-image: url(img/q1.png);width: 146px; height: 50px;"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="#" style="background-image: url(img/q2.png);width: 146px; height: 50px;"></button>&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="#" style="background-image: url(img/q3.png);width: 146px; height: 50px;"></button>
+    </div>
+   
+</div>
+</body>
+
+<div class="right_contact_img" style="z-index: 9998; right: 0px;">
+  <ul>
+    <li><a href="#"><img src="images/qq.png" width="56" height="56" /></a>
+      <div class="pull_down2 qq"><A href="tencent://message/?uin=2070068062&Site=bdesign.com.cn&Menu=yes" target="_blank"><img src="images/qq_03.png" width="180" height="56"></A></div>
+    </li>
+    <li><a href="#"><img src="images/phone.png" width="56" height="56" /></a>
+      <div class="pull_down2 dianhua"><img src="images/phone_03.png" width="180" height="56"></div>
+    </li>
+    </li>
+  </ul>
+</div>
+<div class="foot_gotop" id="foot_gotop"><a href="#/next1/" id="hyfl_a_a" class="hyfl_open"></a></div>
+<div class="foot_qp" id="foot_qp"><a href="javascript:;"></a></div>
+<script>
+$('#contactus .hz_point').hover(function(){
+	$('#contactus .hz_bg').show();
+},function(){
+	$('#contactus .hz_bg').hide();
+});
+</script>
+<script type="text/javascript">
+	$(window).scroll(function(){
+		if($(window).scrollTop()>300)
+			$('.foot_gotop').fadeIn();	
+		else
+			$('.foot_gotop').fadeOut();	
+	})
+	$('#foot_gotop').click(function(){
+		$('body').ScrollTo(800);return false;	
+	})
+$('#foot_qp').click(function(){
+	if($(this).attr('class').indexOf('foot_tcqp')<0){
+		$('.left_case_list').stop().animate({'left':'-95px'},600,function(){});
+		$('.right_contact_img').stop().animate({'right':'-73px'},600,function(){});
+		$('.foot_hyfl').stop().animate({'bottom':'-238px'},600,function(){});
+		$(this).addClass('foot_tcqp');
+	}else{
+		$('.left_case_list').stop().animate({'left':'0'},600,function(){});
+		$('.right_contact_img').stop().animate({'right':'0'},600,function(){});
+		$('.foot_hyfl').stop().animate({'bottom':'-175px'},600,function(){});
+		$(this).removeClass('foot_tcqp');
+	}
+	return false;
+})
+	</script>
+<link rel="stylesheet" href="css/style.css">   
+<div class="sidebar">
+	<ul>
+		<li><a href="tencent://message/?uin=2070068062&Site=bdesign.com.cn&Menu=yes" target="_blank"><img src="images/img58.png"/></a></li>
+		<li><a href="#"><img src="images/img59.png"/></a></li>
+        <li><a href="#"><img src="images/img611.png"/></a></li>
+        <li><a href="#"><img src="images/email.png"/></a></li>
+		<li><a href="#hero"><img src="images/img60.png"/></a></li>
+	</ul>
+</div> 
+<script>
+//tanchuang
+var showi=0;
+$(window).load(function shows(){  
+	   setTimeout(function(){
+		   $(".Tpiaochuan").stop().fadeIn(500);   
+	   },30000);
+	   $(function closee(){   
+		  $(".noneyin").click(function(){  
+			  $(".Tpiaochuan").stop().fadeOut(200);
+			  if(showi!=1)
+			  {
+					 shows(); 
+					 showi++;
+			  }
+			  })
+		  })
+	})
+</script>
+<style type="text/css">
+.Tpiaochuan{ width:500px; height:230px; background:url(imgs/bgx-1.png) no-repeat center center; position:fixed; left:50%; margin-left:-250px; z-index:9999; top:50%; margin-top:-115px;
+	background-size:100% 100%;
+	-webkit-background-size:100% 100%;
+	-moz-background-size:100% 100%;
+	display:none;
+	opacity:0.9; -html-opacity:0.9;
+}
+.Tpiaochuan .noneyin{ position:absolute; bottom:30px; left:37px; cursor:pointer;}
+.Tpiaochuan .zixun{ position:absolute; bottom:30px; right:30px; cursor:pointer;}	
+</style>
+<script type='text/javascript' src='http://tb.53kf.com/kf.php?arg=10005350&style=2'></script>
+</html>
