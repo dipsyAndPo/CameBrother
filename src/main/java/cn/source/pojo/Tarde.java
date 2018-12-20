@@ -6,19 +6,18 @@ public class Tarde {
     private Integer tid;
 
     private String tname;
-
-    private List<Mould> mouldList;
+    private List<Mould> moulds;
 
 	public Tarde() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tarde(Integer tid, String tname, List<Mould> mouldList) {
+	public Tarde(Integer tid, String tname, List<Mould> moulds) {
 		super();
 		this.tid = tid;
 		this.tname = tname;
-		this.mouldList = mouldList;
+		this.moulds = moulds;
 	}
 
 	public Integer getTid() {
@@ -37,18 +36,21 @@ public class Tarde {
 		this.tname = tname;
 	}
 
-	public List<Mould> getMouldList() {
-		return mouldList;
+	public List<Mould> getMoulds() {
+		return moulds;
 	}
 
-	public void setMouldList(List<Mould> mouldList) {
-		this.mouldList = mouldList;
+	public void setMoulds(List<Mould> moulds) {
+		this.moulds = moulds;
 	}
 
 	@Override
 	public String toString() {
-		return "Tarde [tid=" + tid + ", tname=" + tname + ", mouldList=" + mouldList + "]";
+		return "Tarde [tid=" + tid + ", tname=" + tname + ", moulds=" + moulds + "]";
 	}
+
+	
+    
     
     
     

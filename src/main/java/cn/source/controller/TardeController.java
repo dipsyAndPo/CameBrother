@@ -44,6 +44,9 @@ public class TardeController {
 	@RequestMapping("updateByPrimaryKeySelective")
 	@ResponseBody
 	public String updateByPrimaryKeySelective(Tarde record) {
+		ModelAndView mav = new ModelAndView();
+		tardeService.updateByPrimaryKeySelective(record);
+		mav.setViewName("success");
 		tardeService.updateByPrimaryKeySelective(record);
 		return "success";
 	}
