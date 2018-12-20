@@ -13,5 +13,4 @@ public interface TardeService {
     int insert(Tarde record);
     //ÐÞ¸Ä
     int updateByPrimaryKeySelective(Tarde record);
-
 }

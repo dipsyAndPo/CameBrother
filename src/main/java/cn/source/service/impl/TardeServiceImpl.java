@@ -36,6 +36,8 @@ public class TardeServiceImpl implements TardeService {
 		// TODO Auto-generated method stub
 		return tardeMapper.updateByPrimaryKeySelective(record);
 	}
+
+
 	
 
 }

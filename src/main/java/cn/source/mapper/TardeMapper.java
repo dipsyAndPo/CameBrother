@@ -21,6 +21,7 @@ public interface TardeMapper {
     //修改
   	@Update("update tarde set tName=#{tname} where tId=#{tid}")
     int updateByPrimaryKeySelective(Tarde record);
-
-   
+    //查找分类下的详情Id
+  	@Select("select * from tarde where tId= #{tid}")
+    Tarde selectListmould(Integer tid);
 }

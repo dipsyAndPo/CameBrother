@@ -24,7 +24,7 @@ public class Mould {
     private String preview;
 
     private String download;
-
+    
 	public Mould() {
 		super();
 		// TODO Auto-generated constructor stub
