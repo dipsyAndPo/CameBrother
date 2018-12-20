@@ -81,7 +81,7 @@
 					<tr>
 						<td>${u.tid}</td>
 						<td><input  class="tname" type="text" tid="${u.tid}"  name="tname" value="${u.tname}"></td>
-                        <td><a href="..?tid=${u.tid}">▥</a></td>
+                        <td><a href="selectMouldlist?tid=${u.tid}">▥</a></td>
 						<td><a href="deleteByPrimaryKey?tid=${u.tid}">✘</a></td>
 					</tr>
 				</c:forEach>
