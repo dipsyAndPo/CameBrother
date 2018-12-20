@@ -23,7 +23,7 @@ public class SMSController {
 	public String postSMS(String phone,HttpSession session) {
 		System.out.println(phone);
 		IndustrySMS in=new IndustrySMS();
-		String validate =in.execute(phone,suijici());
+		String validate =in.execute(phone,suijiint());
 		String result = in.getResult();
 		String yzm="{\"validate\":\""+validate+"\",\"result\":"+result+"}";
 		System.out.println(yzm);

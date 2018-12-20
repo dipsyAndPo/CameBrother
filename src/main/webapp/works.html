@@ -76,7 +76,6 @@ window.location.href="/plus/search_condition.php?industry=" + industry + "&color
 
 
 $(window).load(function() {
-	$("#container_case2 .case_one").removeClass("hover");
 	$("#container_case2 .case_one").hover(function(){
 		$(this).addClass("hover")//给对应的a添加样式hover
 		$(this).find(".caselogo").stop(true,true).animate({"top": "0"}, 200);
@@ -94,7 +93,7 @@ $(function() {
 		function(data) {
 			var jsons=JSON.parse(data);
 			var bodys="";
-			var div_one="<div class='case_one hover'>";
+			var div_one="<div class='case_one'>";
 			var div_jobs="<div class='jobs'>";
 			var div_caselogo="<div class='caselogo'>"
 			var div_name="<div class='name'>";
