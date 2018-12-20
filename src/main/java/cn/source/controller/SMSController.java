@@ -32,13 +32,14 @@ public class SMSController {
 	
 	
 	public String suijiint() {
-		//随机1000-9999
+		//随机1000-9999 作为验证码
 		int validate=(int)(Math.random()*(9999-1000+1)+1000) ;
 		return ""+validate; 
 	}
 	
 	@Autowired CaoMapper cao;
 	public String suijici() {
+		//随机一句骚话作为验证码
 		Cao selectone = cao.selectone();
 		return selectone.getCao();
 	}
