@@ -61,5 +61,5 @@ $.fn.extend({
 })(jQuery);    
    
 $(document).ready(function(){    
-        $("#scrollDiv").Scroll({line:1,speed:1000,timer:3000,up:"btn1",down:"btn2"});    
+        //$("#scrollDiv").Scroll({line:1,speed:1000,timer:3000,up:"btn1",down:"btn2"});    
 });    

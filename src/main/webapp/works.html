@@ -105,7 +105,6 @@ $(function() {
 	
 });
 </script>
-<script type="text/javascript" src="js/custom2.js"></script>
 <script type="text/javascript" src="js/indexs.js"></script>
 <script type="text/javascript" src="js/jquery.scrollto.js"></script><!--案例控制置顶-->
 <script type="text/javascript" src="js/flipmenu-min.js"></script>
@@ -116,6 +115,19 @@ $(function() {
 		var menu1 = new Flipmenu("flip_menu1");
 		var menu2 = new Flipmenu("flip_menu2");
 	});
+	
+	$(function(){
+		$("#num1 .case_one").hover(function(){
+			alert("aaa");
+			$(this).addClass("hover")//给对应的a添加样式hover
+			$(this).find(".caselogo").stop(true,true).animate({"top": "0"}, 200);
+			$(this).find(".bgs_01").stop(true,true).animate({"bottom": "0"}, 200);
+			},function(){
+			$(this).removeClass("hover")//先删除所有的a的样式hover	
+			$(this).find(".caselogo").stop(true,true).animate({"top": "-180"}, 200);
+			$(this).find(".bgs_01").stop(true,true).animate({"bottom": "-70"}, 200);
+			})	
+	})
 </script>
 <!--[if lt IE 7 ]>
 <script>

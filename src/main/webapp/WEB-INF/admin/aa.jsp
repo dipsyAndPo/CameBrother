@@ -52,7 +52,7 @@
 		行业详情:
 		<div class="layui-inline" style="margin-right: 15px;">
 			<input class="layui-input" id="name1" type="text" name="tname"
-				placeholder="添加的行业类型" autocomplete="off">
+				placeholder="添加的行业类型" autocomplete="off"/>
 		</div>
 		<input type="submit" class="layui-btn" style="margin-left: 10px;"
 			value="操作" />

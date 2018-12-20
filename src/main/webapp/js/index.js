@@ -166,9 +166,7 @@ $(function(){
 		$(this).removeClass("hover")//先删除所有的a的样式hover	
 		$(this).find(".caselogo").stop(true,true).animate({"top": "-180"}, 200);
 		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "-70"}, 200);
-		})
-		
-		
+		})	
 })
 
 

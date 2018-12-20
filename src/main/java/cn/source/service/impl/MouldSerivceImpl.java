@@ -27,5 +27,30 @@ public class MouldSerivceImpl  implements MouldService{
 		Mould moulds = mouldMapper.selectByPrimaryKey(mid);
 		return moulds;
 	}
+	
+	@Override
+	public List<Mould> selectMouldlist(Integer tid) {
+		// TODO Auto-generated method stub
+		return mouldMapper.selectMouldlist(tid);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelectiveaa(Mould mould) {
+		// TODO Auto-generated method stub
+		return mouldMapper.updateByPrimaryKeySelectiveaa(mould);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective2(Mould mould) {
+		// TODO Auto-generated method stub
+		return mouldMapper.updateByPrimaryKeySelective2(mould);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective3(Mould mould) {
+		// TODO Auto-generated method stub
+		return mouldMapper.updateByPrimaryKeySelective3(mould);
+	}
+
 
 }
