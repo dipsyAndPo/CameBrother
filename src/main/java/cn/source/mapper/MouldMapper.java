@@ -18,7 +18,7 @@ public interface MouldMapper {
 	public List<Mould> selectMouldlist(Integer tid);
 	@Select("select * from mould")
 	@Results({
-		@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectByExample"))
+		@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
 	})
 	public List<Mould> selectAllMould();
 	//,label=#{label},praise=#{praise},tread=#{tread},img=#{img},logo=#{logo},preview=#{preview},download=#{download}
