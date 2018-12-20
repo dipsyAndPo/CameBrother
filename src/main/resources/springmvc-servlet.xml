@@ -29,6 +29,7 @@
 	<!-- 解析静态资源 -->
 	<mvc:default-servlet-handler />
 	<!-- 单独jsp视图解析器 -->
+<<<<<<< HEAD
 	<bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
@@ -36,6 +37,12 @@
         <property name="prefix" value="/WEB-INF/admin/" />
         <property name="suffix" value=".jsp" />
     </bean>
+=======
+	 <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/admin/" />
+		<property name="suffix" value=".jsp" />
+	</bean> 
+>>>>>>> 566772e6d216c746c69abfe1dc93bcd0cf3f74ed
 	
 	 <!-- jsp视图 -->
     <!-- <bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -43,7 +50,11 @@
         <property name="prefix" value="/WEB-INF/admin/"/>
         <property name="suffix" value=".jsp"/>
         <property name="order" value="1"></property>
+<<<<<<< HEAD
     </bean> -->
+=======
+    </bean>-->
+>>>>>>> 566772e6d216c746c69abfe1dc93bcd0cf3f74ed
     
    <!-- 配置freeMarker视图解析器（可解析HTML） -->
     <!-- <bean  class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
