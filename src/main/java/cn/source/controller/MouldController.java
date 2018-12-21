@@ -19,9 +19,7 @@ import cn.source.service.MouldService;
 public class MouldController {
 	@Autowired
 	MouldService mouldService;
-
 	// 查询行业下面的详细内容
-	
 	//json
 		String jsons;
 		

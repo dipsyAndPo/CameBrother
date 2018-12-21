@@ -105,14 +105,14 @@ $(function() {
 			var div_bgs="<div class='bgs_01'>";
 			for(i in jsons){
 				bodys+=div_one;
-				bodys+=div_jobs+"<a href='"+jsons[i].preview+"' target='_blank' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"'><img class='jobs_img' src='"+jsons[i].img+"' width='280' height='180' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"' /></a></div>";
-				bodys+=div_caselogo+"<a href='"+jsons[i].preview+"' target='_blank'><img src='"+jsons[i].img+"' width='210' height='150' /></a></div>";
+				bodys+=div_jobs+"<a href='details.html?mid="+jsons[i].mid+"' target='_blank' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"'><img class='jobs_img' src='"+jsons[i].img+"' width='280' height='180' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"' /></a></div>";
+				bodys+=div_caselogo+"<a href='details.html?mid="+jsons[i].mid+"' target='_blank'><img src='"+jsons[i].img+"' width='210' height='150' /></a></div>";
 				bodys+=div_name+"<a href='"+jsons[i].download+"' target='_blank' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"'>"+jsons[i].mname+"</a></div>";
 				bodys+=div_lei+"<span>行业："+jsons[i].tarde.tname+"</span></div>";
 				bodys+=div_bgs+"</div>";
 				bodys+="</div>";
 			}
-		-	$(".jsonsInsert").html(bodys);
+			$(".jsonsInsert").html(bodys);
 			
 		}
 	);

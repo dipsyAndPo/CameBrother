@@ -54,7 +54,12 @@ public interface MouldMapper {
     int insert(Mould record);
 
     int insertSelective(Mould record);
-
+    
+    //通过ID查询模板
+    @Select("select * from mould where mId=#{mid}")
+    @Results({
+    	@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
+    })
     Mould selectByPrimaryKey(Integer mid);
 
    

@@ -37,7 +37,7 @@ public class test1 {
 	
 	@Test
 	public void test() {
-		Mould mould = mou.selectByPrimaryKey(1);
+		Mould mould = mou.selectByPrimaryKey(5);
 		System.out.println(mould);
 		
 	}

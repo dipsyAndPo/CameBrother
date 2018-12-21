@@ -18,8 +18,30 @@
 		var menu1 = new Flipmenu("flip_menu1");
 		var menu2 = new Flipmenu("flip_menu2");
 	});
+	
+	$(function() {
+		//获取URL上面的参数
+		var mid=window.location.href.split("=")[1];
+		var bodys="";
+		var font_bodys="";
+		var button_bodys="";
+		$.post(
+			"selectMouldById",
+			{"mid":mid},
+			function(data) {
+				var jsons=JSON.parse(data);
+				bodys+="<img src='"+jsons.logo+"' style='width: 800px;height: 600px; margin-top: -100px;' />";
+				font_bodys+="<h2>"+jsons.mname+"</h2><span></span><p>热门标签</p>";
+				button_bodys+="<button onclick=\"javascrtpt:window.location.href = \'"+jsons.preview+"\'\" type='#' style='background-image: url(img/q1.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
+				"<button onclick=\"window.location.href = \'"+jsons.preview+"\'\" type='#' style='background-image: url(img/q2.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
+				"<button onclick=\"window.location.href = \'"+jsons.download+"\'\" type='#' style='background-image: url(img/q3.png);width: 146px; height: 50px;'></button>";
+				$("#fonts").html(font_bodys);
+				$("#afterImg").after(bodys);
+				$("#afterBr").after(button_bodys);
+			}
+		)
+	});
 </script>
-<script type="text/javascript" src="js/jQueryRotateCompressed.js"></script>
 <link rel="stylesheet" href="css/style_05.css" type="text/css" />
 <!--[if lt IE 7 ]>
 <script>
@@ -59,18 +81,17 @@
 <!--顶部导航-->
 <div class="service c_bg1" >
 	<div class="service_main" align="center" >
-    	<div class="ser_01">
-            <div class="bn_01">
-                <h2>html5 canvas风中的火焰动画特效</h2>
-                <span>基于canvas绘制逼真的被风吹动的火焰燃烧动画特效。ps：本地要在localhost正常演示。</span>
-                <p>热门标签</p>
+    	<div class="ser_01" id="afterImg">
+            <div class="bn_01" id="fonts">
+
             </div>
         </div>
-        <img src="img/bg.jpg" style="width: 500px;height: 600px; margin-top: -100px;"></img>
-        <br />
+       
+        <br id="afterBr" />
+        <!-- 
        <button type="#" style="background-image: url(img/q1.png);width: 146px; height: 50px;"></button>&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="#" style="background-image: url(img/q2.png);width: 146px; height: 50px;"></button>&nbsp;&nbsp;&nbsp;&nbsp;
-       <button type="#" style="background-image: url(img/q3.png);width: 146px; height: 50px;"></button>
+       <button type="#" style="background-image: url(img/q3.png);width: 146px; height: 50px;"></button>  -->
     </div>
    
 </div>
