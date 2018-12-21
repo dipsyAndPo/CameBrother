@@ -119,19 +119,6 @@ $(function(){
 		
 		
 })
-$(function(){
-	$("#container_case2 .case_one").hover(function(){
-		$(this).addClass("hover")//给对应的a添加样式hover
-		$(this).find(".caselogo").stop(true,true).animate({"top": "0"}, 200);
-		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "0"}, 200);
-		},function(){
-		$(this).removeClass("hover")//先删除所有的a的样式hover	
-		$(this).find(".caselogo").stop(true,true).animate({"top": "-180"}, 200);
-		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "-70"}, 200);
-		})
-		
-		
-})
 
 
 $(function (){

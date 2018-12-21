@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>皇室科技公司-网站设计案例</title>
+<title>设计案例</title>
 <meta name="keywords" content=""/>
 <meta name="renderer" content="webkit">
 <meta name="description" content=""/>
@@ -73,17 +73,59 @@ var area = $("#area").val();
 var feature = $("#feature").val();
 window.location.href="/plus/search_condition.php?industry=" + industry + "&color=" + color + "&layout=" + layout + "&area="+ area +"&feature=" + feature;
 };
+
+
+$(window).load(function() {
+	$("#container_case2 .case_one").hover(function(){
+		$(this).addClass("hover")//给对应的a添加样式hover
+		$(this).find(".caselogo").stop(true,true).animate({"top": "0"}, 200);
+		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "0"}, 200);
+		},function(){
+		$(this).removeClass("hover")//先删除所有的a的样式hover	
+		$(this).find(".caselogo").stop(true,true).animate({"top": "-180"}, 200);
+		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "-70"}, 200);
+		});
+});
+//ajax请求
+$(function() {
+	$.post(
+		"selectAllMould",
+		function(data) {
+			var jsons=JSON.parse(data);
+			var bodys="";
+			var div_one="<div class='case_one'>";
+			var div_jobs="<div class='jobs'>";
+			var div_caselogo="<div class='caselogo'>"
+			var div_name="<div class='name'>";
+			var div_lei="<div class='lei'>";
+			var div_bgs="<div class='bgs_01'>";
+			for(i in jsons){
+				bodys+=div_one;
+				bodys+=div_jobs+"<a href='"+jsons[i].preview+"' target='_blank' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"'><img class='jobs_img' src='"+jsons[i].img+"' width='280' height='180' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"' /></a></div>";
+				bodys+=div_caselogo+"<a href='"+jsons[i].preview+"' target='_blank'><img src='"+jsons[i].img+"' width='210' height='150' /></a></div>";
+				bodys+=div_name+"<a href='"+jsons[i].download+"' target='_blank' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"'>"+jsons[i].mname+"</a></div>";
+				bodys+=div_lei+"<span>行业："+jsons[i].tarde.tname+"</span></div>";
+				bodys+=div_bgs+"</div>";
+				bodys+="</div>";
+			}
+			$(".jsonsInsert").html(bodys);
+			
+		}
+	);
+	
+});
 </script>
-<script type="text/javascript" src="js/custom2.js"></script>
 <script type="text/javascript" src="js/indexs.js"></script>
 <script type="text/javascript" src="js/jquery.scrollto.js"></script><!--案例控制置顶-->
 <script type="text/javascript" src="js/flipmenu-min.js"></script>
 <script type="text/javascript" language="javascript" src="js/index2.js"></script>
+<script src="http://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var menu1 = new Flipmenu("flip_menu1");
 		var menu2 = new Flipmenu("flip_menu2");
 	});
+	
 </script>
 <!--[if lt IE 7 ]>
 <script>
@@ -100,9 +142,7 @@ window.location.href="/plus/search_condition.php?industry=" + industry + "&color
         <ul id="flip_menu1">
           <li><A href="contact.html">联系</A></li>
           <li><A href="about.html">关于</A></li>      
-          <li><A href="group.html">服务</A></li>
-          <li><A href="experience.html">体验</A></li>
-          <li><A href="superiority.html">优势</A></li>
+          <li><A href="experience.html">标签</A></li>
           <li><A href="works.html">案例</A></li>
           <li><A href="index.html">首 页</A></li>
         </ul>
@@ -130,14 +170,8 @@ window.location.href="/plus/search_condition.php?industry=" + industry + "&color
       <li class="cases">
         <h2><a href="works.html">案 例<em>cases</em></a></h2>
       </li>
-      <li class="Advantages">
-        <h2><a href="superiority.html">优势<em>Advantage</em></a></h2>
-      </li>
             <li class="Experiences">
-        <h2><a href="experience.html">体验<em>Experience</em></a></h2>
-      </li>
-      <li class="services">
-        <h2><a href="group.html">服 务<em>Service</em></a></h2>
+        <h2><a href="experience.html">标签<em>Experience</em></a></h2>
       </li>
       <li class="abouts">
         <h2><a href="about.html">关 于<em>About</em></a></h2>
@@ -152,7 +186,7 @@ window.location.href="/plus/search_condition.php?industry=" + industry + "&color
 <link rel="stylesheet" href="css/style.css">
 <div class="sidebar">
 	<ul>
-		<li><a href="tencent://message/?uin=2070068062&Site=bdesign.com.cn&Menu=yes" target="_blank"><img src="images/img58.png"/></a></li>
+		<li><a href="tencent://message/?uin=976678755&Site=bdesign.com.cn&Menu=yes" target="_blank"><img src="images/img58.png"/></a></li>
 		<li><a href="#"><img src="images/img59.png"/></a></li>
         <li><a href="#"><img src="images/img611.png"/></a></li>
         <li><a href="#"><img src="images/email.png"/></a></li>
@@ -161,205 +195,23 @@ window.location.href="/plus/search_condition.php?industry=" + industry + "&color
 </div>
 <!--顶部导航-->
 
-<!--分类-->
+<!--分类 -->
 <div id="con_case cases" style="margin:0 auto; margin-top:170px;">
-  <div id="container_case2">
-    <div id="num1" class="fe">
 
-<div class="case_one">
-        <div class="jobs"><A href="case_list/1.html" target='_blank' alt='Baiyiled lighting America Inc ' title='Baiyiled lighting America Inc '><img class="jobs_img" src="images/baiyi.jpg" width="280" height="180" alt='Baiyiled lighting America Inc ' title='Baiyiled lighting America Inc '/></A>   
-		</div>
+  <div id="container_case2">
+    <div id="num1" class="fe jsonsInsert">
+    <!-- 
+	<div class="case_one">
+        <div class="jobs" id="jsonsMimg"> 
+	</div>
 		<div class="caselogo"><a href="case_list/1.html" target="_blank"><img src="images/baiyi-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/1.html" target='_blank' alt='Baiyiled lighting America Inc ' title='Baiyiled lighting America Inc '>Baiyiled lighting America Inc </A></div>
+        <div class="name" id="jsonmname"><A  href="case_list/1.html" target='_blank' alt='Baiyiled lighting America Inc ' title='Baiyiled lighting America Inc '>Baiyiled lighting America Inc </A></div>
         <div class="lei"><span>行业：LED</span></div>
-        <div class="bgs_01"></div>
+        <div class="bgs_01"></div> -->
       </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/2.html" target='_blank' alt='韩国梦之旅' title='韩国梦之旅'><img class="jobs_img" src="images/mzl.jpg" width="280" height="180" alt='韩国梦之旅' title='韩国梦之旅'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/2.html" target="_blank"><img src="images/mzl-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/2.html" target='_blank' alt='韩国梦之旅' title='韩国梦之旅'>韩国梦之旅</A></div>
-        <div class="lei"><span>行业：旅游</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/3.html" target='_blank' alt='My training group' title='My training group'><img class="jobs_img" src="images/mtg.jpg" width="280" height="180" alt='My training group' title='My training group'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/3.html" target="_blank"><img src="images/mtg-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/3.html" target='_blank' alt='My training group' title='My training group'>My training group</A></div>
-        <div class="lei"><span>行业：教育</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/4.html" target='_blank' alt='星光之约心理咨询' title='星光之约心理咨询'><img class="jobs_img" src="images/xgzy.jpg" width="280" height="180" alt='星光之约心理咨询' title='星光之约心理咨询'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/4.html" target="_blank"><img src="images/xgzy-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/4.html" target='_blank' alt='星光之约心理咨询' title='星光之约心理咨询'>星光之约心理咨询</A></div>
-        <div class="lei"><span>行业：心理咨询</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/5.html" target='_blank' alt='bag on' title='bag on'><img class="jobs_img" src="images/bagon.jpg" width="280" height="180" alt='bag on' title='bag on'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/5.html" target="_blank"><img src="images/bagon-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/5.html" target='_blank' alt='bag on' title='bag on'>bag on</A></div>
-        <div class="lei"><span>行业：购物</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/6.html" target='_blank' alt='LOOK 路客' title='LOOK 路客'><img class="jobs_img" src="images/look.jpg" width="280" height="180" alt='LOOK 路客' title='LOOK 路客'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/6.html" target="_blank"><img src="images/look-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/6.html" target='_blank' alt='LOOK 路客' title='LOOK 路客'>LOOK 路客</A></div>
-        <div class="lei"><span>行业：旅游租房出行门户平台</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/7.html" target='_blank' alt='GO玛雅海外购物' title='GO玛雅海外购物'><img class="jobs_img" src="images/cttx.jpg" width="280" height="180" alt='GO玛雅海外购物' title='GO玛雅海外购物'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/7.html" target="_blank"><img src="images/cttx-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/7.html" target='_blank' alt='GO玛雅海外购物' title='GO玛雅海外购物'>GO玛雅海外购物</A></div>
-        <div class="lei"><span>行业：一站式跨境电子商务代购平台</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/8.html" target='_blank' alt='韩游网' title='韩游网'><img class="jobs_img" src="images/hanyou.jpg" width="280" height="180" alt='韩游网' title='韩游网'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/8.html" target="_blank"><img src="images/hanyou-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/8.html" target='_blank' alt='韩游网' title='韩游网'>韩游网</A></div>
-        <div class="lei"><span>行业：旅游资讯类门户</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/9.html" target='_blank' alt='japanzero留学网' title='japanzero留学网'><img class="jobs_img" src="images/zero.jpg" width="280" height="180" alt='japanzero留学网' title='japanzero留学网'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/9.html" target="_blank"><img src="images/zero-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/9.html" target='_blank' alt='japanzero留学网' title='japanzero留学网'>japanzero留学网</A></div>
-        <div class="lei"><span>行业：留学电子商务平台</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/10.html" target='_blank' alt='Open House' title='Open House'><img class="jobs_img" src="images/open.jpg" width="280" height="180" alt='Open House' title='Open House'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/10.html" target="_blank"><img src="images/open-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/10.html" target='_blank' alt='Open House' title='Open House'>Open House</A></div>
-        <div class="lei"><span>行业：房屋</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/11.html" target='_blank' alt='FIMI公众平台' title='FIMI公众平台'><img class="jobs_img" src="images/fimi.jpg" width="280" height="180" alt='FIMI公众平台' title='FIMI公众平台'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/11.html" target="_blank"><img src="images/fimi-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/11.html" target='_blank' alt='FIMI公众平台' title='FIMI公众平台'>FIMI公众平台</A></div>
-        <div class="lei"><span>行业：IM</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/12.html" target='_blank' alt='中国电力投资集团公司西北分公司' title='中国电力投资集团公司西北分公司'><img class="jobs_img" src="images/fadian.jpg" width="280" height="180" alt='中国电力投资集团公司西北分公司' title='中国电力投资集团公司西北分公司'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/12.html" target="_blank"><img src="images/fadian-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/12.html" target='_blank' alt='中国电力投资集团公司西北分公司' title='中国电力投资集团公司西北分公司'>中国电力投资集团公司西北分公司</A></div>
-        <div class="lei"><span>行业：发电</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/13.html" target='_blank' alt='JackTour' title='JackTour'><img class="jobs_img" src="images/jacktour.jpg" width="280" height="180" alt='JackTour' title='JackTour'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/13.html" target="_blank"><img src="images/jacktour-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/13.html" target='_blank' alt='JackTour' title='JackTour'>JackTour</A></div>
-        <div class="lei"><span>行业：旅游、酒店</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/14.html" target='_blank' alt='InGenius China' title='InGenius China'><img class="jobs_img" src="images/huizhi.jpg" width="280" height="180" alt='InGenius China' title='InGenius China'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/14.html" target="_blank"><img src="images/huizhi-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/14.html" target='_blank' alt='InGenius China' title='InGenius China'>InGenius China</A></div>
-        <div class="lei"><span>行业：教育</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/15.html" target='_blank' alt='INTERNATIONAL DRIVERS DOCUMENT' title='INTERNATIONAL DRIVERS DOCUMENT'><img class="jobs_img" src="images/idd.jpg" width="280" height="180" alt='INTERNATIONAL DRIVERS DOCUMENT' title='INTERNATIONAL DRIVERS DOCUMENT'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/15.html" target="_blank"><img src="images/idd-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/15.html" target='_blank' alt='INTERNATIONAL DRIVERS DOCUMENT' title='INTERNATIONAL DRIVERS DOCUMENT'>INTERNATIONAL DRIVERS DOCUMENT</A></div>
-        <div class="lei"><span>行业：支付</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/16.html" target='_blank' alt='诚心诚意留学教育' title='诚心诚意留学教育'><img class="jobs_img" src="images/cxcy.jpg" width="280" height="180" alt='诚心诚意留学教育' title='诚心诚意留学教育'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/16.html" target="_blank"><img src="images/cxcy-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/16.html" target='_blank' alt='诚心诚意留学教育' title='诚心诚意留学教育'>诚心诚意留学教育</A></div>
-        <div class="lei"><span>行业：教育</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/17.html" target='_blank' alt='上行咖啡' title='上行咖啡'><img class="jobs_img" src="images/shangxing.jpg" width="280" height="180" alt='上行咖啡' title='上行咖啡'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/17.html" target="_blank"><img src="images/shangxing-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/17.html" target='_blank' alt='上行咖啡' title='上行咖啡'>上行咖啡</A></div>
-        <div class="lei"><span>行业：餐饮</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/18.html" target='_blank' alt='RAYCAMP' title='RAYCAMP'><img class="jobs_img" src="images/ray.jpg" width="280" height="180" alt='RAYCAMP' title='RAYCAMP'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/18.html" target="_blank"><img src="images/ray-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/18.html" target='_blank' alt='RAYCAMP' title='RAYCAMP'>RAYCAMP</A></div>
-        <div class="lei"><span>行业：教育</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/19.html" target='_blank' alt='苏州借贷平台' title='苏州借贷平台'><img class="jobs_img" src="images/szd.jpg" width="280" height="180" alt='苏州借贷平台' title='苏州借贷平台'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/19.html" target="_blank"><img src="images/szd-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/19.html" target='_blank' alt='苏州借贷平台' title='苏州借贷平台'>苏州借贷平台</A></div>
-        <div class="lei"><span>行业：金融</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/20.html" target='_blank' alt='天天返佣' title='天天返佣'><img class="jobs_img" src="images/ttfy.jpg" width="280" height="180" alt='天天返佣' title='天天返佣'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/20.html" target="_blank"><img src="images/ttfy-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/20.html" target='_blank' alt='天天返佣' title='天天返佣'>天天返佣</A></div>
-        <div class="lei"><span>行业：返佣平台</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/21.html" target='_blank' alt='东方婚纱摄影' title='东方婚纱摄影'><img class="jobs_img" src="images/dongfang.jpg" width="280" height="180" alt='东方婚纱摄影' title='东方婚纱摄影'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/21.html" target="_blank"><img src="images/dongfang-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/21.html" target='_blank' alt='东方婚纱摄影' title='东方婚纱摄影'>东方婚纱摄影</A></div>
-        <div class="lei"><span>行业：婚纱摄影</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/22.html" target='_blank' alt='悉尼唯美品格影像' title='悉尼唯美品格影像'><img class="jobs_img" src="images/wmpg.jpg" width="280" height="180" alt='悉尼唯美品格影像' title='悉尼唯美品格影像'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/22.html" target="_blank"><img src="images/wmpg-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/22.html" target='_blank' alt='悉尼唯美品格影像' title='悉尼唯美品格影像'>悉尼唯美品格影像</A></div>
-        <div class="lei"><span>行业：婚纱摄影</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/23.html" target='_blank' alt='China Jiangsu International' title='China Jiangsu International'><img class="jobs_img" src="images/cji.jpg" width="280" height="180" alt='China Jiangsu International' title='China Jiangsu International'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/23.html" target="_blank"><img src="images/cji-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/23.html" target='_blank' alt='China Jiangsu International' title='China Jiangsu International'>China Jiangsu International</A></div>
-        <div class="lei"><span>行业：工程建筑</span></div>
-        <div class="bgs_01"></div>
-      </div>
-<div class="case_one">
-        <div class="jobs"><A href="case_list/24.html" target='_blank' alt='SunStar' title='SunStar'><img class="jobs_img" src="images/sunstar.jpg" width="280" height="180" alt='SunStar' title='SunStar'/></A>   
-		</div>
-		<div class="caselogo"><a href="case_list/24.html" target="_blank"><img src="images/sunstar-f.gif" width="210" height="150" /></a></div>
-        <div class="name"><A  href="case_list/24.html" target='_blank' alt='SunStar' title='SunStar'>SunStar</A></div>
-        <div class="lei"><span>行业：清洁</span></div>
-        <div class="bgs_01"></div>
-      </div>
-</div>
-</div>
+	</div>
+</div>  
+
 </body>
 <input type="hidden" id="industry" value="0" />
 <input type="hidden" id="color" value="0" />

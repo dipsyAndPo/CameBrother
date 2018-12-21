@@ -6,6 +6,10 @@ import cn.source.pojo.Mould;
 import cn.source.pojo.Page;
 
 public interface MouldService {
+	//查询所有模板
+	public List<Mould> selectAllMould();
+	//通过ID查询模板
+	public Mould findMouldById(int mid);
 	//通过外键查询
 	List<Mould> selectMouldlist(Integer tid);
 	//删除

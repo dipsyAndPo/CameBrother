@@ -11,10 +11,24 @@ import cn.source.pojo.Page;
 import cn.source.service.MouldService;
 
 @Service
-public class MouldServiceImpl implements MouldService {
-	@Autowired 
+public class MouldSerivceImpl  implements MouldService{
+	@Autowired
 	MouldMapper mouldMapper;
+	
+	@Override
+	public List<Mould> selectAllMould() {
+		// TODO Auto-generated method stub
+		List<Mould> mouldList = mouldMapper.selectAllMould();
+		return mouldList;
+	}
 
+	@Override
+	public Mould findMouldById(int mid) {
+		// TODO Auto-generated method stub
+		Mould moulds = mouldMapper.selectByPrimaryKey(mid);
+		return moulds;
+	}
+	
 	@Override
 	public List<Mould> selectMouldlist(Integer tid) {
 		// TODO Auto-generated method stub
