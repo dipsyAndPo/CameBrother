@@ -15,7 +15,6 @@ import cn.source.pojo.Mould;
 import cn.source.service.MouldService;
 
 @Controller
-@RequestMapping("")
 public class MouldController {
 	@Autowired
 	MouldService mouldService;
