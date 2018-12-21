@@ -37,13 +37,9 @@ public class test1 {
 	
 	@Test
 	public void test() {
-		List<Mould> list = ms.selectAllMould();
-		System.out.println(list);
-		for (Mould mould : list) {
-			System.out.println(mould.getImg());
-			Tarde tarde = mould.getTarde();
-			System.out.println(tarde.getTname());
-		}
+		Mould mould = mou.selectByPrimaryKey(1);
+		System.out.println(mould);
+		
 	}
 	
 	@Test
