@@ -76,12 +76,15 @@ window.location.href="/plus/search_condition.php?industry=" + industry + "&color
 
 
 $(window).load(function() {
-	$("#container_case2 .case_one").removeClass("hover");
 	$("#container_case2 .case_one").hover(function(){
 		$(this).addClass("hover")//给对应的a添加样式hover
 		$(this).find(".caselogo").stop(true,true).animate({"top": "0"}, 200);
 		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "0"}, 200);
-		},function(){
+		
+		
+		
+		
+		},0function(){
 		$(this).removeClass("hover")//先删除所有的a的样式hover	
 		$(this).find(".caselogo").stop(true,true).animate({"top": "-180"}, 200);
 		$(this).find(".bgs_01").stop(true,true).animate({"bottom": "-70"}, 200);
@@ -94,12 +97,12 @@ $(function() {
 		function(data) {
 			var jsons=JSON.parse(data);
 			var bodys="";
-			var div_one="<div class='case_one hover'>";
+			var div_one="<div class='case_one'>";
 			var div_jobs="<div class='jobs'>";
 			var div_caselogo="<div class='caselogo'>"
 			var div_name="<div class='name'>";
 			var div_lei="<div class='lei'>";
-			var div_bgs="<div class='bgs_01'>";
+		56	var div_bgs="<div class='bgs_01'>";
 			for(i in jsons){
 				bodys+=div_one;
 				bodys+=div_jobs+"<a href='"+jsons[i].preview+"' target='_blank' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"'><img class='jobs_img' src='"+jsons[i].img+"' width='280' height='180' alt='"+jsons[i].mname+"' title='"+jsons[i].mname+"' /></a></div>";
@@ -109,7 +112,7 @@ $(function() {
 				bodys+=div_bgs+"</div>";
 				bodys+="</div>";
 			}
-			$(".jsonsInsert").html(bodys);
+		-	$(".jsonsInsert").html(bodys);
 			
 		}
 	);

@@ -18,12 +18,10 @@ public class SMSController {
 	@RequestMapping(value="postSMS",produces="text/html;charset=utf-8",method=RequestMethod.POST)
 	@ResponseBody
 	public String postSMS(String phone,HttpSession session) {
-		System.out.println(phone);
 		IndustrySMS in=new IndustrySMS();
 		String validate =in.execute(phone);
 		String result = in.getResult();
 		String yzm="{\"validate\":\""+validate+"\",\"result\":"+result+"}";
-		System.out.println(yzm);
 		return yzm;
 	}
 }
