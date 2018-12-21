@@ -11,6 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.source.mapper.CaoMapper;
+import cn.source.pojo.Cao;
 
 
 /**
@@ -128,26 +132,14 @@ public class IndustrySMS
 		return result;
 	}
 	
-	public String suijiint() {
-		//随机1000-9999
-		int validate=(int)(Math.random()*(9999-1000+1)+1000) ;
-		return ""+validate;
-	}
 	
-	public String suijici() {
-		
-		return "";
-	}
 
 	
 	/**
 	 * 验证码通知短信
 	 */
-	public  String  execute(String phone)
+	public  String  execute(String phone,String validate)
 	{
-		
-		
-		validate = suijiint();
 		
 		
 		System.out.println("生成验证码："+validate+"正在调用接口中");

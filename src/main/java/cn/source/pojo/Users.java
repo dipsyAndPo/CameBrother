@@ -8,6 +8,8 @@ public class Users {
     private String uname;
 
     private String upwd;
+    
+    private Integer struts;
 
     private List<Star> statList;
 
@@ -56,10 +58,32 @@ public class Users {
 		this.statList = statList;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Users [uid=" + uid + ", uname=" + uname + ", upwd=" + upwd + ", statList=" + statList + "]";
+		return "Users [uid=" + uid + ", uname=" + uname + ", upwd=" + upwd + ", struts=" + struts + ", statList="
+				+ statList + "]";
 	}
+
+	public Users(Integer uid, String uname, String upwd, Integer struts, List<Star> statList) {
+		super();
+		this.uid = uid;
+		this.uname = uname;
+		this.upwd = upwd;
+		this.struts = struts;
+		this.statList = statList;
+	}
+
+	public Integer getStruts() {
+		return struts;
+	}
+
+	public void setStruts(Integer struts) {
+		this.struts = struts;
+	}
+	
+	
     
     
 }
