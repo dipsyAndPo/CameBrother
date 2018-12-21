@@ -15,8 +15,8 @@
     <div class="layui-logo">后台管理</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">行业详情</a></li>
-      <li class="layui-nav-item"><a href="">素材管理</a></li>
+      <li class="layui-nav-item"><a href="selectByExample">行业详情</a></li>
+      <li class="layui-nav-item"><a href="Pagelist">素材管理</a></li>
       <li class="layui-nav-item"><a href="">公告管理</a></li>
       <li class="layui-nav-item"><a href="">用户</a></li>
       <li class="layui-nav-item">
@@ -34,12 +34,12 @@
           <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
           贤心
         </a>
-       <!--  <dl class="layui-nav-child">
-          <dd><a href="">收藏</a></dd>
-          <dd><a href="">修改密码</a></dd>
-        </dl> -->
+        <dl class="layui-nav-child">
+          <!-- <dd><a href="">收藏</a></dd> -->
+          <dd><a href="">退出</a></dd>
+        </dl>
       </li>
-      <li class="layui-nav-item"><a href="">退了</a></li>
+      <li class="layui-nav-item"><a href="">前台首页</a></li>
     </ul>
     
   </div>

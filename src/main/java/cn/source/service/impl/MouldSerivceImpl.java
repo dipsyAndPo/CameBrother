@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cn.source.mapper.MouldMapper;
 import cn.source.pojo.Mould;
+import cn.source.pojo.Page;
 import cn.source.service.MouldService;
 
 @Service
@@ -52,5 +53,34 @@ public class MouldSerivceImpl  implements MouldService{
 		return mouldMapper.updateByPrimaryKeySelective3(mould);
 	}
 
+	@Override
+	public int updateByPrimaryKeySelective4(Mould mould) {
+		// TODO Auto-generated method stub
+		return mouldMapper.updateByPrimaryKeySelective4(mould);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective5(Mould mould) {
+		// TODO Auto-generated method stub
+		return mouldMapper.updateByPrimaryKeySelective5(mould);
+	}
+	
+	@Override
+	public int deleteByPrimaryKey(Integer mid) {
+		// TODO Auto-generated method stub
+		return mouldMapper.deleteByPrimaryKey(mid);
+	}
+
+	@Override
+	public List<Mould> Pagelist(Page page) {
+		// TODO Auto-generated method stub
+		return mouldMapper.Pagelist(page);
+	}
+
+	@Override
+	public int total() {
+		// TODO Auto-generated method stub
+		return mouldMapper.total();
+	}
 
 }
