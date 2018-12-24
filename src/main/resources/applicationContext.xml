@@ -16,7 +16,7 @@
 	<context:component-scan base-package="cn.source.service" annotation-config="true" />
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<!-- 导入数据库配置文件 1是本地数据库，没有1是阿里云数据库  -->
-    <context:property-placeholder  location="classpath:pro.properties" ignore-unresolvable="true"/>
+    <context:property-placeholder  location="classpath:dev.properties" ignore-unresolvable="true"/>
 	
 	 <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 基本属性 url、user、password -->
