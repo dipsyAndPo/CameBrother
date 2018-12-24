@@ -81,7 +81,6 @@ input, button {
 .login-form .group .button{
 	width:100%;
 	color:#fff;
-	display:block;
 }
 .login-form .group .input,
 .login-form .group .button{
