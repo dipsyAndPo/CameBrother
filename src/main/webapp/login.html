@@ -25,6 +25,11 @@ $(function () {
 	$("#logins").click(function() {
 		var uname=$("#username").val();
 		var upwd=$("#password").val();
+		if(uname==""){
+			alert("请输入用户名！");
+		}else if(upwd==""){
+			alert("请输入密码！");
+		}else{
 		$.post(
 			"userLogin",
 			{"uname":uname,"upwd":upwd},
@@ -37,31 +42,40 @@ $(function () {
 				}else if(flag==false){
 					 document.getElementById('msg').innerHTML = "<p style='color: red;'>验证失败！</p>";
 				}else if(jsons.struts==0 && jsons!=null && flag==true){
+					alert("欢迎您再次回来！管理员");
 					window.location.href="selectByExample";
 				}
 				
 			}
 		)
+		}
 	});
 	
 	
 	$("#insert").click(function() {
 		var unames=$("#users").val();
 		var upwds=$("#pass").val();
-		$.post(
-			"insertUser",
-			{"uname":unames,"upwd":upwds},
-			function(data) {
-				var user=JSON.parse(data);
-				var yanzhengma=$("#validate").val();
-				if(user!=null && yanzhengma==a){
-					alert("注册 成功");
-					window.location.href="login.html";
-				}else{
-					alert("验证码错误！");
-				}
-			}
-		)
+		if(unames==""){
+			alert("请输入用户名！");
+		}else if(upwds==""){
+			alert("请输入密码！");
+		}else{
+			$.post(
+					"insertUser",
+					{"uname":unames,"upwd":upwds},
+					function(data) {
+						var user=JSON.parse(data);
+						var yanzhengma=$("#validate").val();
+						if(user!=null && yanzhengma==a){
+							alert("注册 成功");
+							window.location.href="login.html";
+						}else{
+							alert("验证码错误！");
+						}
+					}
+				)
+		}
+		
 	});
 	
 	
@@ -96,11 +110,31 @@ $(function () {
 						  alert("请输入手机号");
 					  }else{
 						  alert(resu.result.respDesc);
+						  //验证码倒计时
+						  time();
 					  }
 					 a=resu.validate;
 				},
 			});
 		 
+	}
+	var waitTime=60;
+	//验证码倒计时
+	function time() {
+		if(waitTime==0){
+			$("#code").attr("disabled",false);
+			$("#code").attr("value","点击发送验证码");
+			$("#code").css({"background-color":"#1161EE"});
+			waitTime=60;
+		}else{
+			$("#code").attr("disabled",true);
+			$("#code").css({"background-color":"#ADADAD"});
+			$("#code").attr("value",waitTime+"s后重新发送");
+			--waitTime;
+			setTimeout(function() {
+				time();
+			}, 1000);
+		}
 	}
 	
 </script>
@@ -136,7 +170,7 @@ $(function () {
 						</div>
 						<div class="hr"></div>
 						<div class="foot-lnk">
-							<a href="#forgot">忘记密码?</a>
+							<a><label for="tab-2">还不是成员？</a>
 						</div>
 					</div>
 					<div class="sign-up-htm">
@@ -160,7 +194,7 @@ $(function () {
 						<div class="group">
 							<label for="pass" class="label">验证码</label>
 							<input id="validate" type="text" class="input" style="width: 200px;">
-							<input type="button" style="width:130px;" class="button" value="点击发送验证码" onclick="IndustrySMS()">
+							<input type="button" style="width:130px;" class="button" value="点击发送验证码" id="code" onclick="IndustrySMS()">
 						</div>
 						<div class="group">
 							<input type="button" class="button" id="insert" value="注册" >
