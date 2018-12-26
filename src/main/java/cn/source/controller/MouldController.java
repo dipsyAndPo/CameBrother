@@ -19,11 +19,11 @@ import cn.source.service.MouldService;
 public class MouldController {
 	@Autowired
 	MouldService mouldService;
-	// ²éÑ¯ÐÐÒµÏÂÃæµÄÏêÏ¸ÄÚÈÝ
+	// ï¿½ï¿½Ñ¯ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½
 	//json
 		String jsons;
 		
-		//²éÑ¯ËùÓÐÄ£°å
+		//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 		@RequestMapping(value="selectAllMould",produces="text/html;charset=UTF-8")
 		@ResponseBody
 		public String selectAllMould() {
@@ -32,7 +32,7 @@ public class MouldController {
 			return jsons;
 		}
 		
-		//Í¨¹ýID²éÑ¯Ä£°å
+		//Í¨ï¿½ï¿½IDï¿½ï¿½Ñ¯Ä£ï¿½ï¿½
 		@RequestMapping(value="selectMouldById",produces="text/html;charset=UTF-8")
 		@ResponseBody
 		public String selectMouldById(int mid) {
@@ -52,7 +52,7 @@ public class MouldController {
 		return mav;
 	}
 
-	// É¾³ý
+	// É¾ï¿½ï¿½
 	@RequestMapping("deleteByPrimaryKeyMould")
 	@ResponseBody
 	public String deleteByPrimaryKey(Integer mid) {
@@ -60,7 +60,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// ÐÞ¸Ä1.
+	// ï¿½Þ¸ï¿½1.
 	@RequestMapping("updateByPrimaryKeySelectiveaa")
 	@ResponseBody
 	public String updateByPrimaryKeySelectiveaa(Mould mould) {
@@ -70,7 +70,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// ÐÞ¸Ä2.
+	// ï¿½Þ¸ï¿½2.
 	@RequestMapping("updateByPrimaryKeySelective2")
 	@ResponseBody
 	public String updateByPrimaryKeySelective2(Mould mould) {
@@ -80,7 +80,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// ÐÞ¸Ä3.
+	// ï¿½Þ¸ï¿½3.
 	@RequestMapping("updateByPrimaryKeySelective3")
 	@ResponseBody
 	public String updateByPrimaryKeySelective3(Mould mould) {
@@ -90,7 +90,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// ÐÞ¸Ä4.
+	// ï¿½Þ¸ï¿½4.
 	@RequestMapping("updateByPrimaryKeySelective4")
 	@ResponseBody
 	public String updateByPrimaryKeySelective4(Mould mould) {
@@ -100,7 +100,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// ÐÞ¸Ä5.
+	// ï¿½Þ¸ï¿½5.
 	@RequestMapping("updateByPrimaryKeySelective5")
 	@ResponseBody
 	public String updateByPrimaryKeySelective5(Mould mould) {
@@ -109,7 +109,7 @@ public class MouldController {
 		mav.setViewName("success");
 		return "success";
 	}
-	//·ÖÒ³
+	//ï¿½ï¿½Ò³
 	@RequestMapping("Pagelist")
 	public ModelAndView Pagelist(Page page) {
 		ModelAndView mav = new ModelAndView();

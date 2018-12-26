@@ -18,12 +18,12 @@ public class TardeController {
 	@Autowired
 	TardeService tardeService;
 	
-	@RequestMapping(value="selectByExample",method=RequestMethod.GET)
+	@RequestMapping("selectByExample")
 	public ModelAndView selectByExample() {
 		ModelAndView mav = new ModelAndView();
 		List<Tarde> tardes = tardeService.selectByExample();
 		mav.addObject("tardes", tardes);
-		mav.setViewName("aa");
+		mav.setViewName("SelectTarde");
 		return mav;
 	}
 	@RequestMapping("deleteByPrimaryKey")

@@ -17,7 +17,7 @@
     <ul class="layui-nav layui-layout-left">
       <li class="layui-nav-item"><a href="selectByExample">行业详情</a></li>
       <li class="layui-nav-item"><a href="Pagelist">素材管理</a></li>
-      <li class="layui-nav-item"><a href="">公告管理</a></li>
+      <li class="layui-nav-item"><a href="selectNotice">公告管理</a></li>
       <li class="layui-nav-item"><a href="">用户</a></li>
       <li class="layui-nav-item">
         <a href="javascript:;">其它系统</a>
