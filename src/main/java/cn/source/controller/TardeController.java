@@ -18,14 +18,17 @@ public class TardeController {
 	@Autowired
 	TardeService tardeService;
 	
+
 	@RequestMapping(value="selectByExample",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
 	public ModelAndView selectByExample() {
 		ModelAndView mav = new ModelAndView();
 		List<Tarde> tardes = tardeService.selectByExample();
 		mav.addObject("tardes", tardes);
-		mav.setViewName("aa");
+
+		mav.setViewName("SelectTarde");
 		return mav;
 	}
+
 	@RequestMapping(value="deleteByPrimaryKey",produces="text/html;charset=UTF-8")
 	public ModelAndView deleteByPrimaryKey(Integer tid) {
 		ModelAndView mav = new ModelAndView();
@@ -33,6 +36,7 @@ public class TardeController {
 		mav.setViewName("redirect:/selectByExample");
 		return mav;
 	}
+
 	@RequestMapping(value="insert",produces="text/html;charset=UTF-8")
 	public ModelAndView insert(Tarde record) {
 		ModelAndView mav = new ModelAndView();

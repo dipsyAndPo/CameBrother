@@ -6,26 +6,31 @@ import cn.source.pojo.Mould;
 import cn.source.pojo.Page;
 
 public interface MouldService {
-	//²éÑ¯ËùÓÐÄ£°å
+	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	public List<Mould> selectAllMould();
-	//Í¨¹ýID²éÑ¯Ä£°å
+	//Í¨ï¿½ï¿½IDï¿½ï¿½Ñ¯Ä£ï¿½ï¿½
 	public Mould findMouldById(int mid);
-	//Í¨¹ýÍâ¼ü²éÑ¯
+	//Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯
 	List<Mould> selectMouldlist(Integer tid);
-	//É¾³ý
+	//É¾ï¿½ï¿½
 	int deleteByPrimaryKey(Integer mid);
-	//ÐÞ¸Ä1.
+	//ï¿½Þ¸ï¿½1.
 	int updateByPrimaryKeySelectiveaa(Mould mould);
-	//ÐÞ¸Ä2.
+	//ï¿½Þ¸ï¿½2.
 	int updateByPrimaryKeySelective2(Mould mould);
-	//ÐÞ¸Ä3.
+	//ï¿½Þ¸ï¿½3.
 	int updateByPrimaryKeySelective3(Mould mould);
-	//ÐÞ¸Ä4.
+	//ï¿½Þ¸ï¿½4.
 	int updateByPrimaryKeySelective4(Mould mould);
-	//ÐÞ¸Ä5.
+	//ï¿½Þ¸ï¿½5.
 	int updateByPrimaryKeySelective5(Mould mould);
-	//·ÖÒ³ 
+	//ï¿½ï¿½Ò³ 
 	public List<Mould> Pagelist(Page page);  
+	
+	//ç‚¹èµž
+	public void mouldPraise(int mid);
+	//è¸©
+	public void mouldTread(int mid);
 	public int total();  
 
 }

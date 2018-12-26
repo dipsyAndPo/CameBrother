@@ -83,4 +83,18 @@ public class MouldSerivceImpl  implements MouldService{
 		return mouldMapper.total();
 	}
 
+	@Override
+	public void mouldPraise(int mid) {
+		// TODO Auto-generated method stub
+		mouldMapper.mouldPraise(mid);
+		
+	}
+
+	@Override
+	public void mouldTread(int mid) {
+		// TODO Auto-generated method stub
+		mouldMapper.mouldTread(mid);
+		
+	}
+
 }
