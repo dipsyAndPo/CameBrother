@@ -1,6 +1,6 @@
 package cn.source.pojo;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Notice {
     private Integer nid;
@@ -9,22 +9,25 @@ public class Notice {
 
     private String context;
 
-    private Date dateline;
+    private Timestamp dateline;
 
     private String img;
+    
+    private String logoimg;
 
 	public Notice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Notice(Integer nid, String title, String context, Date dateline, String img) {
+	public Notice(Integer nid, String title, String context, Timestamp dateline, String img, String logoimg) {
 		super();
 		this.nid = nid;
 		this.title = title;
 		this.context = context;
 		this.dateline = dateline;
 		this.img = img;
+		this.logoimg = logoimg;
 	}
 
 	public Integer getNid() {
@@ -51,11 +54,11 @@ public class Notice {
 		this.context = context;
 	}
 
-	public Date getDateline() {
+	public Timestamp getDateline() {
 		return dateline;
 	}
 
-	public void setDateline(Date dateline) {
+	public void setDateline(Timestamp dateline) {
 		this.dateline = dateline;
 	}
 
@@ -67,11 +70,21 @@ public class Notice {
 		this.img = img;
 	}
 
+	public String getLogoimg() {
+		return logoimg;
+	}
+
+	public void setLogoimg(String logoimg) {
+		this.logoimg = logoimg;
+	}
+
 	@Override
 	public String toString() {
 		return "Notice [nid=" + nid + ", title=" + title + ", context=" + context + ", dateline=" + dateline + ", img="
-				+ img + "]";
+				+ img + ", logoimg=" + logoimg + "]";
 	}
 
+	
+	
    
 }

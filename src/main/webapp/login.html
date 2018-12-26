@@ -101,6 +101,12 @@ $(function () {
 	
 	function IndustrySMS() {
 		to=$("#toPhone").val();
+		if(to==""){
+			alert("请输入手机号");
+			return;
+		}
+		//验证码倒计时
+		time();
 			$.ajax({
 				  url: "postSMS",
 				  data:{phone:to},
@@ -108,11 +114,11 @@ $(function () {
 				  type: 'post',
 				  success: function (resu) {
 					  if(resu.result.respDesc=="to参数为空"){
-						  alert("请输入手机号");
+						  alert("手机号不正确");
+					  }else if(resu.result.respDesc=="请求成功。"){
+						  alert("验证码发送成功，请查看手机");
 					  }else{
 						  alert(resu.result.respDesc);
-						  //验证码倒计时
-						  time();
 					  }
 					 a=resu.validate;
 				},
