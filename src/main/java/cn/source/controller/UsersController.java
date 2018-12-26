@@ -19,7 +19,7 @@ public class UsersController {
 	UserService userService;
 	private String jsons;
 	ModelAndView mav;
-	//ÓÃ»§µÇÂ¼
+	//ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	@RequestMapping(value="userLogin",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String userLogin(String uname,String upwd,HttpSession session) {
@@ -30,7 +30,7 @@ public class UsersController {
 		
 	}
 	
-	//ÓÃ»§×¢²á
+	//ï¿½Ã»ï¿½×¢ï¿½ï¿½
 	@RequestMapping(value="insertUser",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String getJsons(Users users) {
@@ -41,7 +41,7 @@ public class UsersController {
 		return jsons;
 	}
 	
-	//ÓÃ»§ÊÇ·ñ´æÔÚ
+	//ï¿½Ã»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="isExists",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String isExists(String uname) {
@@ -50,6 +50,13 @@ public class UsersController {
 		return jsons;
 	}
 	
+	@RequestMapping(value="userEsc",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String userEsc(HttpSession session) {
+		session.setAttribute("users", null);
+		jsons="æˆåŠŸ";
+		return jsons;
+	}
 	
 	public void setJsons(String jsons) {
 		this.jsons = jsons;

@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.Update;
 
 public interface MouldMapper {
 	@Select("select * from mould where tId=#{tid} ")
-	//¶à¶ÔÒ»
+	//ï¿½ï¿½ï¿½Ò»
 	@Results({
 			@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
     })
@@ -25,29 +25,35 @@ public interface MouldMapper {
 	})
 	public List<Mould> selectAllMould();
 	//,label=#{label},praise=#{praise},tread=#{tread},img=#{img},logo=#{logo},preview=#{preview},download=#{download}
-	//ÐÞ¸Ä1.
+	//ï¿½Þ¸ï¿½1.
 	@Update("update mould set mname=#{mname} where mId=#{mid}")
 	int updateByPrimaryKeySelectiveaa(Mould mould);
-	//ÐÞ¸Ä2.
+	//ï¿½Þ¸ï¿½2.
 	@Update("update mould set label=#{label} where mId=#{mid}")
 	int updateByPrimaryKeySelective2(Mould mould);
-	//ÐÞ¸Ä3.
+	//ï¿½Þ¸ï¿½3.
 	@Update("update mould set praise=#{praise} where mId=#{mid}")
 	int updateByPrimaryKeySelective3(Mould mould);
-	//ÐÞ¸Ä4.
+	//ï¿½Þ¸ï¿½4.
 	@Update("update mould set preview=#{preview} where mId=#{mid}")
 	int updateByPrimaryKeySelective4(Mould mould);
-	//ÐÞ¸Ä5.
+	//ï¿½Þ¸ï¿½5.
 	@Update("update mould set download=#{download} where mId=#{mid}")
 	int updateByPrimaryKeySelective5(Mould mould);
-	//É¾³ý
+	//É¾ï¿½ï¿½
 	@Delete("delete from mould where mId= #{mid}")
     int deleteByPrimaryKey(Integer mid);
-	//·ÖÒ³ 
+	//ï¿½ï¿½Ò³ 
 	public List<Mould> Pagelist(Page page);  
 	public int total();  
-
-	
+	@Select("select * from mould where mId=#{mid}")
+	public Mould selectMouldByMid(int mid);
+	//ç‚¹èµž
+	@Update("update mould set praise=praise+1 where mid=#{mid}")
+	public void mouldPraise(int mid);
+	//è¸©
+	@Update("update mould set tread=tread+1 where mid=#{mid}")
+	public void mouldTread(int mid);
 	
 	
 	
@@ -55,7 +61,7 @@ public interface MouldMapper {
 
     int insertSelective(Mould record);
     
-    //Í¨¹ýID²éÑ¯Ä£°å
+    //Í¨ï¿½ï¿½IDï¿½ï¿½Ñ¯Ä£ï¿½ï¿½
     @Select("select * from mould where mId=#{mid}")
     @Results({
     	@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))

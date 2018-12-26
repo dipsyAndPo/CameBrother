@@ -1,23 +1,31 @@
 package cn.source.pojo;
 
+import java.util.List;
+
 public class Star {
     private Integer sid;
 
     private Users user;
 
-    private Mould mould;
+    private Mould moulds;
 
 	public Star() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Star(Integer sid, Users user, Mould mould) {
+
+
+
+
+	public Star(Integer sid, Users user, Mould moulds) {
 		super();
 		this.sid = sid;
 		this.user = user;
-		this.mould = mould;
+		this.moulds = moulds;
 	}
+
+
 
 	public Integer getSid() {
 		return sid;
@@ -35,17 +43,28 @@ public class Star {
 		this.user = user;
 	}
 
-	public Mould getMould() {
-		return mould;
+
+
+
+	public Mould getMoulds() {
+		return moulds;
 	}
 
-	public void setMould(Mould mould) {
-		this.mould = mould;
+
+
+
+
+	public void setMoulds(Mould moulds) {
+		this.moulds = moulds;
 	}
+
+
+
+
 
 	@Override
 	public String toString() {
-		return "Star [sid=" + sid + ", user=" + user + ", mould=" + mould + "]";
+		return "Star [sid=" + sid + ", user=" + user + ", mould=" + moulds + "]";
 	}
 
     
