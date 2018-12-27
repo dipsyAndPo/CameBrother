@@ -21,7 +21,6 @@ import cn.source.service.MouldService;
 public class MouldController {
 	@Autowired
 	MouldService mouldService;
-	// ��ѯ��ҵ�������ϸ����
 	//json
 		String jsons;
 		

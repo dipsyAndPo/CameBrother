@@ -23,7 +23,7 @@
       <li class="layui-nav-item">
         <a href="javascript:;">
           <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
-          ${uname}
+          ${users.uname}
         </a>
         <dl class="layui-nav-child">
           <!-- <dd><a href="">收藏</a></dd> -->
