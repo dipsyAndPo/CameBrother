@@ -7,11 +7,11 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 public interface UsersMapper {
-	//µÇÂ¼
+	//ï¿½ï¿½Â¼
 	@Select("select * from users where uname=#{0} and upwd=#{1}")
 	Users userLogin(String uname,String upwd);
 	
-	//ÅÐ¶ÏÓÃ»§ÃûÊÇ·ñ´æÔÚ
+	//ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 	@Select("select * from users where uname=#{uname}")
 	Users ixExists(String uname);
 	
@@ -20,9 +20,6 @@ public interface UsersMapper {
     @Insert("insert into users(uname,upwd) values(#{uname},#{upwd})")
     int insert(Users record);
 
-    int insertSelective(Users record);
-
-    List<Users> selectByExample();
 
     Users selectByPrimaryKey(Integer uid);
 
