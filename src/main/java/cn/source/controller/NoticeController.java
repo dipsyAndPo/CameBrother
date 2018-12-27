@@ -25,7 +25,7 @@ import cn.source.service.NoticeService;
 public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
-	
+
 	//查看所有公告
 	@RequestMapping("selectNotice")
 	public ModelAndView selectNotice() {

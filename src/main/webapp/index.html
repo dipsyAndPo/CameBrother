@@ -20,6 +20,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript">
 				$(function() {
+					
+					var aa="";
+					
+					$.ajax({
+						url:"getAjaxNotice",
+						success:function (result) {
+							var json=JSON.parse(result);
+							for(i in json){
+								if(i>4){
+									return;
+								}
+					
+					"<li><a href=\"case_list/8.html\" target=\"_blank\">\r\n" + 
+					"<div class=\"img\"><img src=\"images/hanyou-i.jpg\"/></div>\r\n" + 
+					"<div class=\"brand\">\r\n" + 
+					"<table><tr><td><img src=\"\"/></td></tr></table></div></a></li>";
+					
+					
+					
+					
+					
+					
 					var gonggao="";
 					$.ajax({
 						url:"getAjaxNotice",
@@ -30,16 +52,18 @@
 									return;
 								}
 								
-								var myDate = new Date(json[i].dateLine);
-								alert(myDate);
+								var d = new Date(json[i].dateline); 
+								var year=d.getFullYear();
+								var month=d.getMonth();
+								var date=d.getDate();
 								gonggao+="<li><a href='notice.html' target='_blank'>"+
 								"<div class='view'>"+
 								"<div class='date'>"+
-								"<big>26</big><span>2018-12</span></div><div class='img'><table>"+
+								"<big>"+date+"</big><span>"+year+"-"+month+"</span></div><div class='img'><table>"+
 								"<tr><td><img src="+json[i].img+"></td></tr></table></div>"+
 								"<h4>"+json[i].title+"</h4></div>"+
 								"<div class='mask' style='background: #b9922e none repeat scroll 0 0;'>"+
-								"<div class='img'><img src="+json[i].img+"></div>"+
+								"<div class='img'><img src="+json[i].logoimg+"></div>"+
 								"<h2>"+json[i].title+"</h2><hr />"+
 								"<p>"+json[i].context+"</p></div></a></li>";
 								
@@ -271,103 +295,8 @@
 				</dl>
 			</div>
 			<div class="body">
-				<ul>
-				<li  >
-						<a href="case_list/8.html" target="_blank">
-						<div class="img">
-							<img src="images/hanyou-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li  >
-						<a href="case_list/2.html" target="_blank">
-						<div class="img">
-							<img src="images/mzl-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li  >
-						<a href="case_list/3.html" target="_blank">
-						<div class="img">
-							<img src="images/mtg-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li  >
-						<a href="case_list/6.html" target="_blank">
-						<div class="img">
-							<img src="images/look-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li class="last" >
-						<a href="case_list/4.html" target="_blank">
-						<div class="img">
-							<img src="images/xgzy-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li class="last" >
-						<a href="case_list/7.html" target="_blank">
-						<div class="img">
-							<img src="images/cttx-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li class="last" >
-						<a href="case_list/9.html" target="_blank">
-						<div class="img">
-							<img src="images/zero-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
-<li class="last" >
-						<a href="case_list/10.html" target="_blank">
-						<div class="img">
-							<img src="images/open-i.jpg"/>
-						</div>
-						<div class="brand">
-							<table> 
-								<tr><td><img src=""/></td></tr>
-							</table>
-						</div>
-						</a>
-				  </li>
+				<ul id="anli">
+			
 	
 				</ul>
 			</div>
