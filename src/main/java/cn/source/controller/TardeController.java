@@ -18,7 +18,7 @@ public class TardeController {
 	@Autowired
 	TardeService tardeService;
 	
-
+    //查询所有行业
 	@RequestMapping(value="selectByExample",method=RequestMethod.GET,produces="text/html;charset=UTF-8")
 	public ModelAndView selectByExample() {
 		ModelAndView mav = new ModelAndView();
@@ -28,7 +28,7 @@ public class TardeController {
 		mav.setViewName("SelectTarde");
 		return mav;
 	}
-
+     //删除
 	@RequestMapping(value="deleteByPrimaryKey",produces="text/html;charset=UTF-8")
 	public ModelAndView deleteByPrimaryKey(Integer tid) {
 		ModelAndView mav = new ModelAndView();
@@ -36,7 +36,7 @@ public class TardeController {
 		mav.setViewName("redirect:/selectByExample");
 		return mav;
 	}
-
+    //添加
 	@RequestMapping(value="insert",produces="text/html;charset=UTF-8")
 	public ModelAndView insert(Tarde record) {
 		ModelAndView mav = new ModelAndView();
@@ -44,6 +44,7 @@ public class TardeController {
 		mav.setViewName("redirect:/selectByExample");
 		return mav;
 	}
+	//修改
 	@RequestMapping(value="updateByPrimaryKeySelective",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String updateByPrimaryKeySelective(Tarde record) {

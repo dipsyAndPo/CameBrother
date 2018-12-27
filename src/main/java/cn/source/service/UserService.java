@@ -1,13 +1,13 @@
 package cn.source.service;
 
+
 import cn.source.pojo.Users;
 
 public interface UserService {
-	//µÇÂ¼
+	//ç™»é™†
 	public Users userLogin(String uname,String upwd);
-	//×¢²á
+	//æ³¨å†Œ
 	public int insertUser(Users users);
-	//ÅĞ¶ÏÓÃ»§ÃûÊÇ·ñ´æÔÚ
+	//æŸ¥è¯¢ç”¨æˆ·å
 	public Users ixExists(String uname);
-
 }

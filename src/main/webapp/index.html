@@ -7,6 +7,7 @@
 <meta name="keywords" content=""/>
 <meta name="renderer" content="webkit">
 <meta name="description" content=""/>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
 <link rel="stylesheet" href="css/glide.css">
 <link rel="stylesheet" href="css/jquery.fullPage.css">
 <link rel="stylesheet" href="css/jquery.circliful.css" />
@@ -17,6 +18,38 @@
 <![endif]-->
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+				$(function() {
+					var gonggao="";
+					$.ajax({
+						url:"getAjaxNotice",
+						success:function (result) {
+							var json=JSON.parse(result);
+							for(i in json){
+								if(i>4){
+									return;
+								}
+								
+								var myDate = new Date(json[i].dateLine);
+								alert(myDate);
+								gonggao+="<li><a href='notice.html' target='_blank'>"+
+								"<div class='view'>"+
+								"<div class='date'>"+
+								"<big>26</big><span>2018-12</span></div><div class='img'><table>"+
+								"<tr><td><img src="+json[i].img+"></td></tr></table></div>"+
+								"<h4>"+json[i].title+"</h4></div>"+
+								"<div class='mask' style='background: #b9922e none repeat scroll 0 0;'>"+
+								"<div class='img'><img src="+json[i].img+"></div>"+
+								"<h2>"+json[i].title+"</h2><hr />"+
+								"<p>"+json[i].context+"</p></div></a></li>";
+								
+								$("#gonggao").append(gonggao);
+								gonggao="";
+							}
+						}
+					});
+				});
+			</script>
 </head>
 
 <body>
@@ -354,124 +387,11 @@
 				</div>
 				
 			</div>
+			
+			
 			<div class="body">
-				<ul class="list">
-					<li >
-							<a href="notice.html" target="_blank">
-							<div class="view">
-								<div class="date">
-									<big>26</big><span>2018-12</span>
-								</div>
-								<div class="img">
-									<table> 
-										<tr><td><img src="images/look-xf.gif"/></td></tr>
-									</table>
-								</div>
-								<h4>2018年12月26日，老弟上线</h4>
-							</div>
-							<div class="mask" style="background: #b9922e none repeat scroll 0 0;">
-								<div class="img">
-									<img src="images/look-ef.png"/>
-								</div>
-								<h2>2018年12月26日，老弟上线</h2>
-								<hr />
-								<p>来了老弟是一个素材网站，专注于计算机技术搜集</p>
-							</div>
-							</a>
-				  </li>
-<li >
-							<a href="notice.html" target="_blank">
-							<div class="view">
-								<div class="date">
-									<big>26</big><span>2018-12</span>
-								</div>
-								<div class="img">
-									<table> 
-										<tr><td><img src="images/baiyi-xf.gif"/></td></tr>
-									</table>
-								</div>
-								<h4>上线福利，会员半价充值活动</h4>
-							</div>
-							<div class="mask" style="background: #216fc5 none repeat scroll 0 0;">
-								<div class="img">
-									<img src="images/baiyi-ef.png"/>
-								</div>
-								<h2>上线福利，会员半价充值活动</h2>
-								<hr />
-								<p>为庆祝网站成功上线，推出会员半价充值活动 </p>
-							</div>
-							</a>
-				  </li>
-<li >
-							<a href="notice.html" target="_blank">
-							<div class="view">
-								<div class="date">
-									<big>25</big><span>2018-12</span>
-								</div>
-								<div class="img">
-									<table> 
-										<tr><td><img src="images/mtg-xf.gif"/></td></tr>
-									</table>
-								</div>
-								<h4>问题反馈，福利会员限量放送</h4>
-							</div>
-							<div class="mask" style="background: #003d78 none repeat scroll 0 0;">
-								<div class="img">
-									<img src="images/mtg-ef.png"/>
-								</div>
-								<h2>问题反馈，福利会员限量放送</h2>
-								<hr />
-								<p>使用中发现问题，请及时联系我们,并赠送期限会员</p>
-							</div>
-							</a>
-				  </li>
-<li >
-							<a href="notice.html" target="_blank">
-							<div class="view">
-								<div class="date">
-									<big>24</big><span>2018-12</span>
-								</div>
-								<div class="img">
-									<table> 
-										<tr><td><img src="images/open-xf.gif"/></td></tr>
-									</table>
-								</div>
-								<h4>网站维护--优化</h4>
-							</div>
-							<div class="mask" style="background: #f60022 none repeat scroll 0 0;">
-								<div class="img">
-									<img src="images/open-ef.png"/>
-								</div>
-								<h2>网站维护--优化</h2>
-								<hr />
-								<p>维护时间：2018年12月24-2018年12月26日</p>
-							</div>
-							</a>
-				  </li>
-<li class="last">
-							<a href="notice.html" target="_blank">
-							<div class="view">
-								<div class="date">
-									<big>23</big><span>2018-12</span>
-								</div>
-								<div class="img">
-									<table> 
-										<tr><td><img src="images/cttx-xf.gif"/></td></tr>
-									</table>
-								</div>
-								<h4>网站测试--首测</h4>
-							</div>
-							<div class="mask" style="background: #c3001e none repeat scroll 0 0;">
-								<div class="img">
-									<img src="images/cttx-ef.png"/>
-								</div>
-								<h2>网站测试--首测</h2>
-								<hr />
-								<p>测试时间为：2018年12月23-2018年12月24日</p>
-							</div>
-							</a>
-				  </li>
-
+				<ul class="list"  id="gonggao">
+					
 				</ul>
 			</div>
 		</div>

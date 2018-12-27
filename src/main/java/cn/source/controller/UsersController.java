@@ -1,5 +1,8 @@
 package cn.source.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-
 import cn.source.pojo.Users;
 import cn.source.service.UserService;
 
@@ -19,7 +21,7 @@ public class UsersController {
 	UserService userService;
 	private String jsons;
 	ModelAndView mav;
-	//�û���¼
+	//登陆
 	@RequestMapping(value="userLogin",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String userLogin(String uname,String upwd,HttpSession session) {
@@ -30,7 +32,7 @@ public class UsersController {
 		
 	}
 	
-	//�û�ע��
+	//注册
 	@RequestMapping(value="insertUser",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String getJsons(Users users) {

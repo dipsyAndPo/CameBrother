@@ -18,25 +18,16 @@
       <li class="layui-nav-item"><a href="selectByExample">行业详情</a></li>
       <li class="layui-nav-item"><a href="Pagelist">素材管理</a></li>
       <li class="layui-nav-item"><a href="selectNotice">公告管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
-      <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
-        <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
-        </dl>
-      </li>
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
         <a href="javascript:;">
           <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
-          贤心
+          ${users.uname}
         </a>
         <dl class="layui-nav-child">
           <!-- <dd><a href="">收藏</a></dd> -->
-          <dd><a href="">退出</a></dd>
+          <dd><a href="login.html">退出</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item"><a href="">前台首页</a></li>

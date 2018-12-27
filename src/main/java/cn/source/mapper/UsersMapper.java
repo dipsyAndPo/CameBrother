@@ -7,27 +7,20 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 public interface UsersMapper {
-	//��¼
+	//登陆
 	@Select("select * from users where uname=#{0} and upwd=#{1}")
 	Users userLogin(String uname,String upwd);
 	
-	//�ж��û����Ƿ����
+	//查询用户名
 	@Select("select * from users where uname=#{uname}")
 	Users ixExists(String uname);
 	
-    int deleteByPrimaryKey(Integer uid);
-
+	//添加用户
     @Insert("insert into users(uname,upwd,uphone) values(#{uname},#{upwd},#{uphone})")
     int insert(Users record);
 
-    int insertSelective(Users record);
-    
-    List<Users> selectByExample();
-
+    //根据uid查询用户
     @Select("select * from users where uId=#{uid}")
     Users selectByPrimaryKey(Integer uid);
 
-    int updateByPrimaryKeySelective(Users record);
-
-    int updateByPrimaryKey(Users record);
 }

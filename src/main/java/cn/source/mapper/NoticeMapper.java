@@ -12,12 +12,19 @@ public interface NoticeMapper {
 	//删除
 	@Delete("delete from notice where nId= #{nid}")
     int deleteNotice(Integer nid);
+	
+	
+	
     //增加
 	@Insert("insert into notice(title,context,img,logoimg) values(#{title},#{context},#{img},#{logoimg})")
     int insertNotice(Notice notice);
     //查询所有
     @Select("select * from notice")
     List<Notice> selectNotice();
+    //查询前五条公告
+    @Select("select * from notice ORDER BY dateLine desc  limit 5")
+    List<Notice> selectNoticeBy5();
+    
 
     //修改1
     @Update("update notice set title=#{title} where nId=#{nid}")
