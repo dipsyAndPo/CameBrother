@@ -5,7 +5,7 @@
  
     <mapper namespace="cn.source.mapper.MouldMapper">
           <!-- 查询所有++++分页 -->
-         <select id="Pagelist" resultType="Mould">
+         <select id="Pagelist" resultType="cn.source.pojo.Mould">
             select * from   mould      
             <if test="start!=null and count!=null">
                     limit #{start},#{count}

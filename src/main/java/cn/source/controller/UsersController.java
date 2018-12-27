@@ -21,7 +21,7 @@ public class UsersController {
 	UserService userService;
 	private String jsons;
 	ModelAndView mav;
-	//�û���¼
+	//登陆
 	@RequestMapping(value="userLogin",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String userLogin(String uname,String upwd,HttpSession session) {
@@ -32,7 +32,7 @@ public class UsersController {
 		
 	}
 	
-	//�û�ע��
+	//注册
 	@RequestMapping(value="insertUser",produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String getJsons(Users users) {

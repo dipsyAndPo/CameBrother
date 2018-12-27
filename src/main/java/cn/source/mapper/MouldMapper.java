@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.Update;
 
 public interface MouldMapper {
 	@Select("select * from mould where tId=#{tid} ")
-	//���һ
+	//查询每个行业下的详情信息
 	@Results({
 			@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
     })
@@ -24,26 +24,25 @@ public interface MouldMapper {
 		@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
 	})
 	public List<Mould> selectAllMould();
-	//,label=#{label},praise=#{praise},tread=#{tread},img=#{img},logo=#{logo},preview=#{preview},download=#{download}
-	//�޸�1.
+	//修改1.
 	@Update("update mould set mname=#{mname} where mId=#{mid}")
 	int updateByPrimaryKeySelectiveaa(Mould mould);
-	//�޸�2.
+	//修改2.
 	@Update("update mould set label=#{label} where mId=#{mid}")
 	int updateByPrimaryKeySelective2(Mould mould);
-	//�޸�3.
+	//修改3.
 	@Update("update mould set praise=#{praise} where mId=#{mid}")
 	int updateByPrimaryKeySelective3(Mould mould);
-	//�޸�4.
+	//修改4.
 	@Update("update mould set preview=#{preview} where mId=#{mid}")
 	int updateByPrimaryKeySelective4(Mould mould);
-	//�޸�5.
+	//修改5.
 	@Update("update mould set download=#{download} where mId=#{mid}")
 	int updateByPrimaryKeySelective5(Mould mould);
-	//ɾ��
+	//删除
 	@Delete("delete from mould where mId= #{mid}")
     int deleteByPrimaryKey(Integer mid);
-	//��ҳ 
+	//分页 
 	public List<Mould> Pagelist(Page page);  
 	public int total();  
 	@Select("select * from mould where mId=#{mid}")
@@ -61,7 +60,7 @@ public interface MouldMapper {
 
     int insertSelective(Mould record);
     
-    //ͨ��ID��ѯģ��
+    //ͨ查询所有行业下的详情
     @Select("select * from mould where mId=#{mid}")
     @Results({
     	@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))

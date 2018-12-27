@@ -4,10 +4,10 @@ package cn.source.service;
 import cn.source.pojo.Users;
 
 public interface UserService {
-	//��¼
+	//登陆
 	public Users userLogin(String uname,String upwd);
-	//ע��
+	//注册
 	public int insertUser(Users users);
-	//�ж��û����Ƿ����
+	//查询用户名
 	public Users ixExists(String uname);
 }
