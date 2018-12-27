@@ -32,6 +32,26 @@ public class UsersController {
 		
 	}
 	
+	//通过ID查询用户
+		@RequestMapping(value="selectUsersById",produces="text/html;charset=UTF-8")
+		@ResponseBody
+		public String selectUsersById(HttpSession session) {
+			Users users = (Users) session.getAttribute("users");
+			if(users==null) {
+				return "";
+			}else {
+				Integer id = users.getUid();
+				Users uJson = userService.selectByPrimaryKey(id);
+				if(uJson!=null) {
+					jsons=JSON.toJSONString(uJson);
+				}else {
+					jsons="null";
+				}
+			}
+			
+			return jsons;
+		}
+	
 	//注册
 	@RequestMapping(value="insertUser",produces="text/html;charset=UTF-8")
 	@ResponseBody

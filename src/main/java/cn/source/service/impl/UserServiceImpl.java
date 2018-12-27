@@ -29,6 +29,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public Users selectByPrimaryKey(Integer uid) {
+		// TODO Auto-generated method stub
+		Users users = usersMapper.selectByPrimaryKey(uid);
+		return users;
+	}
+	@Override
 	public Users ixExists(String uname) {
 		// TODO Auto-generated method stub
 		Users isUserExists = usersMapper.ixExists(uname);

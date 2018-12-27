@@ -10,4 +10,5 @@ public interface UserService {
 	public int insertUser(Users users);
 	//查询用户名
 	public Users ixExists(String uname);
+	Users selectByPrimaryKey(Integer uid);
 }
