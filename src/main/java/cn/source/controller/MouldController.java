@@ -2,6 +2,8 @@ package cn.source.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +44,23 @@ public class MouldController {
 			return jsons;
 		}
 		
+		//点赞
+		@RequestMapping("mouldPraise")
+		@ResponseBody
+		public String mouldPraise(int mid) {
+			mouldService.mouldPraise(mid);
+			jsons="1";
+			return jsons;
+		}
 	
+		//踩
+		@RequestMapping("mouldTread")
+		@ResponseBody
+		public String mouldTread(int mid) {
+			mouldService.mouldTread(mid);
+			jsons="1";
+			return jsons;
+		}
 	@RequestMapping("selectMouldlist")
 	public ModelAndView selectMouldlist(Integer tid) {
 		ModelAndView mav = new ModelAndView();

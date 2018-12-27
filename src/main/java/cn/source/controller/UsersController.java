@@ -54,6 +54,13 @@ public class UsersController {
 		return jsons;
 	}
 	
+	@RequestMapping(value="userEsc",produces="text/html;charset=UTF-8")
+	@ResponseBody
+	public String userEsc(HttpSession session) {
+		session.setAttribute("users", null);
+		jsons="成功";
+		return jsons;
+	}
 	
 	public void setJsons(String jsons) {
 		this.jsons = jsons;

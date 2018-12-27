@@ -10,20 +10,14 @@ public class Users {
     private String upwd;
     
     private Integer struts;
+    
+    private String uphone;
 
     private List<Star> statList;
 
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Users(Integer uid, String uname, String upwd, List<Star> statList) {
-		super();
-		this.uid = uid;
-		this.uname = uname;
-		this.upwd = upwd;
-		this.statList = statList;
 	}
 
 	public Integer getUid() {
@@ -54,25 +48,34 @@ public class Users {
 		return statList;
 	}
 
+	
+	public String getUphone() {
+		return uphone;
+	}
+
+	public void setUphone(String uphone) {
+		this.uphone = uphone;
+	}
+
 	public void setStatList(List<Star> statList) {
 		this.statList = statList;
 	}
 
-	
 
-	@Override
-	public String toString() {
-		return "Users [uid=" + uid + ", uname=" + uname + ", upwd=" + upwd + ", struts=" + struts + ", statList="
-				+ statList + "]";
-	}
-
-	public Users(Integer uid, String uname, String upwd, Integer struts, List<Star> statList) {
+	public Users(Integer uid, String uname, String upwd, Integer struts, String uphone, List<Star> statList) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
 		this.upwd = upwd;
 		this.struts = struts;
+		this.uphone = uphone;
 		this.statList = statList;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [uid=" + uid + ", uname=" + uname + ", upwd=" + upwd + ", struts=" + struts + ", uphone=" + uphone
+				+ ", statList=" + statList + "]";
 	}
 
 	public Integer getStruts() {

@@ -18,7 +18,9 @@
 		var menu1 = new Flipmenu("flip_menu1");
 		var menu2 = new Flipmenu("flip_menu2");
 	});
-	
+	var praiseNum;
+	var treadNum;
+	var count=0;
 	$(function() {
 		//获取URL上面的参数
 		var mid=window.location.href.split("=")[1];
@@ -32,17 +34,79 @@
 				var jsons=JSON.parse(data);
 				bodys+="<img src='"+jsons.logo+"' style='width: 800px;height: 600px; margin-top: -100px;' />";
 				font_bodys+="<h2>"+jsons.mname+"</h2><span></span><p>热门标签</p>";
-				button_bodys+="<button onclick=\"window.location.href = \'"+jsons.preview+"\'\" type='#' style='background-image: url(img/11.jpg);width: 49px; height: 45px;border: 0;'></button>&nbsp;&nbsp;"+
-				"<button onclick=\"window.location.href = \'"+jsons.download+"\'\" type='#' style='background-image: url(img/22.jpg);width: 49px; height: 45px;border: 0;'></button><br /><br /><br />"+
+				praiseNum=jsons.praise;
+				treadNum=jsons.tread;
+				button_bodys+="<button id='praiseNum' onclick='javascrtpt:praise()' style='background-image: url(img/11.jpg);width: 49px; height: 45px;border: 0;'></button><span id='insertPraiseNum'>"+jsons.praise+"</span>&nbsp;&nbsp;"+
+				"<button id='treadNum' onclick='javascrtpt:tread()' style='background-image: url(img/22.jpg);width: 49px; height: 45px;border: 0;'></button><span id='insertTread'>"+jsons.tread+"</span><br /><br /><br />"+
 				"<button onclick=\"javascrtpt:window.location.href = \'"+jsons.preview+"\'\" type='#' style='background-image: url(img/q1.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
-				"<button onclick=\"window.location.href = \'"+jsons.preview+"\'\" type='#' style='background-image: url(img/q2.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
+				"<button id='star' onclick='insertStar()' type='#' style='background-image: url(img/q2.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
 				"<button onclick=\"window.location.href = \'"+jsons.download+"\'\" type='#' style='background-image: url(img/q3.png);width: 146px; height: 50px;'></button><br /><br /><br /><br /><br /><br />";
 				$("#fonts").html(font_bodys);
 				$("#afterImg").after(bodys);
 				$("#afterBr").after(button_bodys);
 			}
 		)
+			
+			//是否收藏
+			$.post(
+				"isStar",
+				{"mid":mid},
+				function(data) {
+					if(data=="已收藏"){
+						$("#star").attr("disabled",true);
+					}
+				}
+				
+			)
+			
 	});
+	//收藏
+	function insertStar() {
+		var mid=window.location.href.split("=")[1];
+		$.post(
+			"insertStar",
+			{"moulds.mid":mid},
+			function(data) {
+				if(data=="1"){
+					alert("收藏成功");
+					$("#star").attr("disabled",true);
+			}
+			}
+		)
+	}
+		
+	//点赞
+	function  praise() {
+		var mid=window.location.href.split("=")[1];
+		if(count<1){
+		$.post(
+			"mouldPraise",
+			{"mid":mid},
+			function(data) {
+				count=1;
+				$("#insertPraiseNum").html(praiseNum+1);
+			}
+		)}else{
+			alert("你已经点过了哦！");
+		}
+	}
+	
+	//踩
+	function tread() {
+		var mid=window.location.href.split("=")[1];
+		if(count<1){
+		$.post(
+			"mouldTread",
+			{"mid":mid},
+			function(data) {
+				count=1;
+				$("#insertTread").html(treadNum+1);
+			}
+		)}else{
+			alert("你已经点过了哦！");
+		}
+	}
+
 </script>
 <link rel="stylesheet" href="css/style_05.css" type="text/css" />
 
@@ -67,7 +131,7 @@
           <li><A href="index.html">首 页</A></li>
         </ul>
       </div>
-
+	
     </div>
   </div>
 </div>
@@ -92,7 +156,6 @@
         <br id="afterBr" />
 
     </div>
-   
 </div>
 </body>
 
@@ -181,5 +244,4 @@ $(window).load(function shows(){
 .Tpiaochuan .noneyin{ position:absolute; bottom:30px; left:37px; cursor:pointer;}
 .Tpiaochuan .zixun{ position:absolute; bottom:30px; right:30px; cursor:pointer;}	
 </style>
-<script type='text/javascript' src='http://tb.53kf.com/kf.php?arg=10005350&style=2'></script>
 </html>

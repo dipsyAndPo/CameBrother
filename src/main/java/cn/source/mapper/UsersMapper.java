@@ -17,10 +17,14 @@ public interface UsersMapper {
 	
     int deleteByPrimaryKey(Integer uid);
 
-    @Insert("insert into users(uname,upwd) values(#{uname},#{upwd})")
+    @Insert("insert into users(uname,upwd,uphone) values(#{uname},#{upwd},#{uphone})")
     int insert(Users record);
 
+    int insertSelective(Users record);
+    
+    List<Users> selectByExample();
 
+    @Select("select * from users where uId=#{uid}")
     Users selectByPrimaryKey(Integer uid);
 
     int updateByPrimaryKeySelective(Users record);
