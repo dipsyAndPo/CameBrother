@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.User;
-
 import cn.source.pojo.Users;
 import cn.source.service.UserService;
 
