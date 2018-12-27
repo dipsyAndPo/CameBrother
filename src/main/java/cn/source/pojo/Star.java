@@ -1,6 +1,5 @@
 package cn.source.pojo;
 
-import java.util.List;
 
 public class Star {
     private Integer sid;

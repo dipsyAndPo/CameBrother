@@ -57,8 +57,8 @@
 							<img src="images/laodi.jpg" style="height:100px;" class="img-thumbnail">
 						</div>
 						<div class="col-md-7">
-							<span style="font-size: 20px;">用户名：</span><br /><br />
-							<span style="font-size: 20px;">手机号：</span>&nbsp;
+							<span style="font-size: 20px;">用户名：<span id="admins"></span></span><br /><br />
+							<span style="font-size: 20px;">手机号：<span id="adminphone"></span></span>&nbsp;
 							<a href="collect.html"><button style="float: right;width: 100px;height: 50px;font-size:21px; margin-top: -20px;margin-right: -150px;background-image:url(images/bg4a.jpg);color: white; ">
 							我的收藏</button></a>
 						</div>
@@ -175,6 +175,18 @@
 	<script type="text/javascript" src="js1/switch-need1.js"></script>
 	<script type="text/javascript" src="js1/bootstrap-switch.min.js"></script>
 	<script type="text/javascript" src="js1/switch-need2.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$.post(
+				"selectUsersById",
+				function(data) {
+					var jsons=JSON.parse(data);
+					$("#admins").html(jsons.uname);
+					$("#adminphone").html(jsons.uphone);
+				}
+			)
+		});
+	</script>
 <br /><br /><br /><br />
 
 </body>

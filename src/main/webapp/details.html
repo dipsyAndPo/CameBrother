@@ -55,6 +55,7 @@
 				function(data) {
 					if(data=="已收藏"){
 						$("#star").attr("disabled",true);
+						$("#star").css({"background-image":"url(img/q4.png)"});
 					}
 				}
 				
@@ -71,6 +72,7 @@
 				if(data=="1"){
 					alert("收藏成功");
 					$("#star").attr("disabled",true);
+					$("#star").css({"background-image":"url(img/q4.png)"});
 			}
 			}
 		)

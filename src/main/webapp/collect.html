@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>收藏</title>
-<link rel="stylesheet" href="css/demo.css">
-<link rel="stylesheet" href="css/global.css" type="text/css" />
 
-<script type="text/javascript" src="js/include.js"></script>
+<link rel="stylesheet" href="css/demo.css" type="text/css">
+<link rel="stylesheet" href="css/global.css" type="text/css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/demo.js"></script>
 </head>
 <body>
 <div id="metop">
@@ -46,157 +47,39 @@
 <hr style="width: 1150px;height: 2px;color: black;background-color: black;margin-left: 270px;"/>
 <br />
 
-<div class="wrapper">
-        <ul>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic1.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture1
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic2.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                          Picture2
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic3.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                           Picture3
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic4.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture4
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic2-1.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture5
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic2-2.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture6
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic2-3.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture7
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic2-4.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                           Picture8
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic3-1.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture9
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic3-2.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture10
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic3-3.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture11
-                        </h3>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class='picBox'>
-                    <div class='show'>
-                        <image height='180px' width='180px' src='img/pic3-4.png'></image>
-                    </div>
-                    <div class='hide'>
-                        <h3>
-                            Picture12
-                        </h3>
-                    </div>
-                </div>
-            </li>
-        </ul>
+<div class="wrapper" >
+	<ul id="insertJsons"></ul>
     </div>
-	
-    <script src="js/jquery.min.js"></script>
-    <script src="js/demo.js"></script>
+
+    <script type="text/javascript" src="js/include.js"></script>
+    <script type="text/javascript">
+    	$(function() {
+    		$.post(
+					"findUserStar",
+					function(data) {
+						var jsons=JSON.parse(data);
+						var bodys="";
+						var bodys_li="<li>";
+						var bodys_picBox="<div class='picBox'>";
+						var bodys_show="<div class='show'>";
+						for(i in jsons){
+							bodys+=bodys_li;
+							bodys+=bodys_picBox;
+							bodys+=bodys_show;
+							bodys+=" <image height='180px' width='180px' src='"+jsons[i].moulds.logo+"'></image>";
+							bodys+="</div>";
+							bodys+="<div class='hide'><h3>"+jsons[i].moulds.mname+"</h3></div>";
+							bodys+="</div>";
+							bodys+="</li>";
+						}
+						$("#insertJsons").html(bodys);
+					}
+			)
+		});
+    		function wocao(name) {
+				
+			}
+    </script>
 
 
 <br /><br /><br /><br />
