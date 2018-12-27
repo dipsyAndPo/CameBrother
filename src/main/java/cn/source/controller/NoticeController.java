@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+
 import cn.source.pojo.Notice;
 import cn.source.service.NoticeService;
 
@@ -33,6 +35,16 @@ public class NoticeController {
 	    mav.setViewName("SelectNoticeList");
 		return mav;
 	}
+	
+	
+	//ajax获取前五个公告
+		@RequestMapping(value="getAjaxNotice",produces="text/html;charset=UTF-8")
+		@ResponseBody
+		public String getAjaxNotice() {
+		    List<Notice> notices = noticeService.selectNoticeBy5();
+			return JSON.toJSONString(notices);
+		}
+	
 	//删除
 	@RequestMapping("deleteNotice")
 	public ModelAndView deleteNotice(Integer nid) {

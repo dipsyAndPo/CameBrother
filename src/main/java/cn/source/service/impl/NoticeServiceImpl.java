@@ -43,6 +43,12 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		return noticeMapper.insertNotice(notice);
 	}
+
+	@Override
+	public List<Notice> selectNoticeBy5() {
+		// TODO Auto-generated method stub
+		return noticeMapper.selectNoticeBy5();
+	}
 	
 
 }

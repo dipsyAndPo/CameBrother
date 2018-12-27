@@ -7,6 +7,8 @@ import cn.source.pojo.Notice;
 public interface NoticeService {
 	//查询所有
 	List<Notice> selectNotice();
+	//查询所有
+	List<Notice> selectNoticeBy5();
 	//删除
 	int deleteNotice(Integer nid);
 	//修改1
