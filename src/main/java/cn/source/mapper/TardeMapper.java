@@ -9,19 +9,19 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 public interface TardeMapper {
-	//É¾³ı
+	//åˆ é™¤
 	@Delete("delete from tarde where tId= #{tid}")
     int deleteByPrimaryKey(Integer tid);
-	//Ìí¼Ó
+	//å¢åŠ 
     @Insert("insert into tarde(tName) values(#{tname})")
     int insert(Tarde record);
-    //²éÑ¯ËùÓĞĞĞÒµ
+    //æŸ¥è¯¢æ‰€æœ‰è¡Œä¸š
   	@Select("select * from tarde")
     List<Tarde> selectByExample();
-    //ĞŞ¸Ä
+    //ä¿®æ”¹è¡Œä¸š
   	@Update("update tarde set tName=#{tname} where tId=#{tid}")
     int updateByPrimaryKeySelective(Tarde record);
-    //²éÕÒ·ÖÀàÏÂµÄÏêÇéId
+    //æŸ¥è¯¢æ‰€æœ‰è¡Œä¸šä¸‹çš„è¯¦æƒ…
   	@Select("select * from tarde where tId= #{tid}")
     Tarde selectListmould(Integer tid);
 }

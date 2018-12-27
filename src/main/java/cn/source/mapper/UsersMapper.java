@@ -7,11 +7,11 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 public interface UsersMapper {
-	//��¼
+	//登陆
 	@Select("select * from users where uname=#{0} and upwd=#{1}")
 	Users userLogin(String uname,String upwd);
 	
-	//�ж��û����Ƿ����
+	//查询用户名
 	@Select("select * from users where uname=#{uname}")
 	Users ixExists(String uname);
 	

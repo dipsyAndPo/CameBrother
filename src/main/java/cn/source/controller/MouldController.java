@@ -60,6 +60,8 @@ public class MouldController {
 			jsons="1";
 			return jsons;
 		}
+		
+    //素材管理
 	@RequestMapping("selectMouldlist")
 	public ModelAndView selectMouldlist(Integer tid) {
 		ModelAndView mav = new ModelAndView();
@@ -69,7 +71,7 @@ public class MouldController {
 		return mav;
 	}
 
-	// ɾ��
+	// 删除
 	@RequestMapping("deleteByPrimaryKeyMould")
 	@ResponseBody
 	public String deleteByPrimaryKey(Integer mid) {
@@ -77,7 +79,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// �޸�1.
+	// 修改1.
 	@RequestMapping("updateByPrimaryKeySelectiveaa")
 	@ResponseBody
 	public String updateByPrimaryKeySelectiveaa(Mould mould) {
@@ -87,7 +89,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// �޸�2.
+	// 修改2.
 	@RequestMapping("updateByPrimaryKeySelective2")
 	@ResponseBody
 	public String updateByPrimaryKeySelective2(Mould mould) {
@@ -97,7 +99,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// �޸�3.
+	// 修改3.
 	@RequestMapping("updateByPrimaryKeySelective3")
 	@ResponseBody
 	public String updateByPrimaryKeySelective3(Mould mould) {
@@ -107,7 +109,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// �޸�4.
+	// 修改4.
 	@RequestMapping("updateByPrimaryKeySelective4")
 	@ResponseBody
 	public String updateByPrimaryKeySelective4(Mould mould) {
@@ -117,7 +119,7 @@ public class MouldController {
 		return "success";
 	}
 
-	// �޸�5.
+	// 修改5.
 	@RequestMapping("updateByPrimaryKeySelective5")
 	@ResponseBody
 	public String updateByPrimaryKeySelective5(Mould mould) {
@@ -126,7 +128,7 @@ public class MouldController {
 		mav.setViewName("success");
 		return "success";
 	}
-	//��ҳ
+	//分页
 	@RequestMapping("Pagelist")
 	public ModelAndView Pagelist(Page page) {
 		ModelAndView mav = new ModelAndView();
