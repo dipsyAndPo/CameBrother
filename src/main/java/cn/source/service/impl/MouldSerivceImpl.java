@@ -97,4 +97,10 @@ public class MouldSerivceImpl  implements MouldService{
 		
 	}
 
+	@Override
+	public List<Mould> selectMouldBypraise() {
+		// TODO Auto-generated method stub
+		return mouldMapper.selectMouldBypraise();
+	}
+
 }

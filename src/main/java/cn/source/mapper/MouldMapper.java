@@ -19,6 +19,14 @@ public interface MouldMapper {
 			@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
     })
 	public List<Mould> selectMouldlist(Integer tid);
+	
+	//查询点赞前五个的素材
+	@Select("select * from mould ORDER BY praise desc LIMIT 8")
+	@Results({
+		@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))
+	})
+	public List<Mould> selectMouldBypraise();
+	
 	@Select("select * from mould")
 	@Results({
 		@Result(property="tarde",column="tid",one=@One(select="cn.source.mapper.TardeMapper.selectListmould"))

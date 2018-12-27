@@ -21,22 +21,19 @@
 <script type="text/javascript">
 				$(function() {
 					
-					var aa="";
-					
 					$.ajax({
-						url:"getAjaxNotice",
+						url:"selectMouldBypraise",
 						success:function (result) {
-							var json=JSON.parse(result);
-							for(i in json){
-								if(i>4){
-									return;
-								}
+						var json=JSON.parse(result);
+						for(i in json){
+							anli="<li><a href='details.html?mid="+json[i].mid+"' target='_blank'>\r\n" + 
+							"<div class='img'><img src='"+json[i].img+"'/></div>\r\n" + 
+							"<div class='brand'>\r\n" + 
+							"<table><tr><td><img src=''/></td></tr></table></div></a></li>";
+							$("#anli").append(anli);
+						}
 					
-					"<li><a href=\"case_list/8.html\" target=\"_blank\">\r\n" + 
-					"<div class=\"img\"><img src=\"images/hanyou-i.jpg\"/></div>\r\n" + 
-					"<div class=\"brand\">\r\n" + 
-					"<table><tr><td><img src=\"\"/></td></tr></table></div></a></li>";
-					
+						}});
 					
 					
 					
@@ -84,14 +81,12 @@
   </div>
   
 	<div class="nav">
-	<a href="login.html" style="float: right;margin-top: -30px;margin-left:5px;font-size: 14px;color: blue;"><u>登录</u></a>
 		<ul>
-		
 			<li><a href="index.html"><span class="s1">首页</span><span class="s2">首页</span></a></li>
             <li><a href="works.html"><span class="s1">案例</span><span class="s2">案例</span></a></li>
-            <li><a href="experience.html"><span class="s1">标签</span><span class="s2">体验</span></a></li>
 			<li><a href="about.html"><span class="s1">关于</span><span class="s2">关于</span></a></li>
 			<li><a href="contact.html"><span class="s1">联系</span><span class="s2">联系</span></a></li>
+            <li><a href="login.html"><span class="s1">登陆</span><span class="s2">登陆</span></a></li>
 		</ul>
 	</div>
 </div>

@@ -21,47 +21,56 @@ import cn.source.service.MouldService;
 public class MouldController {
 	@Autowired
 	MouldService mouldService;
-	//json
-		String jsons;
-		
-		//��ѯ����ģ��
-		@RequestMapping(value="selectAllMould",produces="text/html;charset=UTF-8")
-		@ResponseBody
-		public String selectAllMould() {
-			List<Mould> mouldList = mouldService.selectAllMould();
-			jsons=JSON.toJSONString(mouldList,SerializerFeature.DisableCircularReferenceDetect);
-			return jsons;
-		}
-		
-		//ͨ��ID��ѯģ��
-		@RequestMapping(value="selectMouldById",produces="text/html;charset=UTF-8")
-		@ResponseBody
-		public String selectMouldById(int mid) {
-			Mould moulds = mouldService.findMouldById(mid);
-			jsons=JSON.toJSONString(moulds);
-			System.out.println(jsons);
-			return jsons;
-		}
-		
-		//点赞
-		@RequestMapping("mouldPraise")
-		@ResponseBody
-		public String mouldPraise(int mid) {
-			mouldService.mouldPraise(mid);
-			jsons="1";
-			return jsons;
-		}
-	
-		//踩
-		@RequestMapping("mouldTread")
-		@ResponseBody
-		public String mouldTread(int mid) {
-			mouldService.mouldTread(mid);
-			jsons="1";
-			return jsons;
-		}
-		
-    //素材管理
+	// json
+	String jsons;
+
+	// ajax查询全部素材
+	@RequestMapping(value = "selectAllMould", produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String selectAllMould() {
+		List<Mould> mouldList = mouldService.selectAllMould();
+		jsons = JSON.toJSONString(mouldList, SerializerFeature.DisableCircularReferenceDetect);
+		return jsons;
+	}
+
+	// ajax获取点赞千前八个
+	@RequestMapping(value = "selectMouldBypraise", produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String selectMouldBypraise() {
+		List<Mould> mouldList = mouldService.selectMouldBypraise();
+		jsons = JSON.toJSONString(mouldList, SerializerFeature.DisableCircularReferenceDetect);
+		return jsons;
+	}
+
+	// ͨ��ID��ѯģ��
+	@RequestMapping(value = "selectMouldById", produces = "text/html;charset=UTF-8")
+	@ResponseBody
+	public String selectMouldById(int mid) {
+		Mould moulds = mouldService.findMouldById(mid);
+		jsons = JSON.toJSONString(moulds);
+		System.out.println(jsons);
+		return jsons;
+	}
+
+	// 点赞
+	@RequestMapping("mouldPraise")
+	@ResponseBody
+	public String mouldPraise(int mid) {
+		mouldService.mouldPraise(mid);
+		jsons = "1";
+		return jsons;
+	}
+
+	// 踩
+	@RequestMapping("mouldTread")
+	@ResponseBody
+	public String mouldTread(int mid) {
+		mouldService.mouldTread(mid);
+		jsons = "1";
+		return jsons;
+	}
+
+	// 素材管理
 	@RequestMapping("selectMouldlist")
 	public ModelAndView selectMouldlist(Integer tid) {
 		ModelAndView mav = new ModelAndView();
@@ -128,14 +137,15 @@ public class MouldController {
 		mav.setViewName("success");
 		return "success";
 	}
-	//分页
+
+	// 分页
 	@RequestMapping("Pagelist")
 	public ModelAndView Pagelist(Page page) {
 		ModelAndView mav = new ModelAndView();
 		List<Mould> moulds = mouldService.Pagelist(page);
 		int total = mouldService.total();
 		page.caculateLast(total);
-		mav.addObject("moulds",moulds);
+		mav.addObject("moulds", moulds);
 		mav.setViewName("SelectMouldList");
 		return mav;
 	}

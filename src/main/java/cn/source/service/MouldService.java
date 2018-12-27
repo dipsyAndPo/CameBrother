@@ -19,6 +19,8 @@ public interface MouldService {
 	
 	//点赞
 	public void mouldPraise(int mid);
+	//查询点赞前八个
+	public List<Mould> selectMouldBypraise();
 	//踩
 	public void mouldTread(int mid);
 	public int total();  
