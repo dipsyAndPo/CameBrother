@@ -58,11 +58,12 @@ public class StarController {
 		}
 		Integer uid = users.getUid();
 		List<Star> userStars = starService.findUserStar(uid);
-		if(userStars==null) {
+		if(userStars.size()==0) {
 			jsons="还未收藏";
 		}else {
 			jsons=JSON.toJSONString(userStars);
 		}
+		System.out.println(jsons);
 		return jsons;
 	}
 }

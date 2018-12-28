@@ -23,6 +23,7 @@
 				$(function() {
 				
 					$.ajax({
+						type:"post",
 						url:"selectMouldBypraise",
 						success:function (result) {
 						var json=JSON.parse(result);

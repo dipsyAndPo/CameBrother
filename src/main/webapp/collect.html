@@ -64,6 +64,10 @@
 				async:false,
 				url:"findUserStar",
 				success:function(data) {
+					if(data=="还未收藏"){
+						$(".wrapper").append("<h1 style='font-size: 267%;'>现在还没有收藏任何素材哦</h1>");
+						return;
+					}
 						var jsons=JSON.parse(data);
 						var bodys="";
 						var bodys_li="<li>";

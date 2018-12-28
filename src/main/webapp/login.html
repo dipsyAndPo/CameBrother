@@ -99,34 +99,40 @@ $(function () {
 	});
 		
 });
-	
+var waitTime=60;
 	function IndustrySMS() {
 		to=$("#toPhone").val();
 		if(to==""){
 			alert("请输入手机号");
 			return;
 		}
-		//验证码倒计时
-		time();
+		
 			$.ajax({
 				  url: "postSMS",
 				  data:{phone:to},
+				  async:false,
 				  dataType:"json",
 				  type: 'post',
 				  success: function (resu) {
 					  if(resu.result.respDesc=="to参数为空"){
 						  alert("手机号不正确");
+						  waitTime=3;
 					  }else if(resu.result.respDesc=="请求成功。"){
 						  alert("验证码发送成功，请查看手机");
+						  waitTime=60;
 					  }else{
 						  alert(resu.result.respDesc);
+						  waitTime=3;
 					  }
 					 a=resu.validate;
 				},
 			});
+			
+			//验证码倒计时
+			time();
 		 
 	}
-	var waitTime=60;
+
 	//验证码倒计时
 	function time() {
 		if(waitTime==0){
@@ -185,7 +191,7 @@ $(function () {
 						<div class="group">
 							<div id="msg1"></div>
 							<label for="user" class="label">用户名</label>
-							<input class="users" type="text" class="input" name="uname">
+							<input id="users" type="text" class="input" name="uname">
 						</div>
 						<div class="group">
 							<label for="pass" class="label">密码</label>
