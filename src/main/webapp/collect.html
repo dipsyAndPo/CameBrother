@@ -1,15 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html class="JS" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>收藏</title>
 
-<link rel="stylesheet" href="css/demo.css" type="text/css">
 <link rel="stylesheet" href="css/global.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css"  >  
+<link rel="stylesheet" href="css/demo.css" type="text/css">
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/demo.js"></script>
+	<script type="text/javascript">
+	function wocao(name) {
+		
+	}
+	</script>
 </head>
 <body>
 <div id="metop">
@@ -50,13 +56,14 @@
 <div class="wrapper" >
 	<ul id="insertJsons"></ul>
     </div>
-
     <script type="text/javascript" src="js/include.js"></script>
+
     <script type="text/javascript">
-    	$(function() {
-    		$.post(
-					"findUserStar",
-					function(data) {
+    		$.ajax({
+				type:'POST',
+				async:false,
+				url:"findUserStar",
+				success:function(data) {
 						var jsons=JSON.parse(data);
 						var bodys="";
 						var bodys_li="<li>";
@@ -74,18 +81,14 @@
 						}
 						$("#insertJsons").html(bodys);
 					}
-			)
-		});
-    		function wocao(name) {
-				
-			}
-    </script>
+			})
 
+    </script>
 
 <br /><br /><br /><br />
 </body>
 
-<link rel="stylesheet" href="css/style.css">   
+
 <div class="sidebar">
 	<ul>
 		<li><a href="tencent://message/?uin=976678755&Site=bdesign.com.cn&Menu=yes" target="_blank"><img src="images/img58.png"/></a></li>
@@ -96,4 +99,5 @@
 	</ul>
 </div>  
 
+    <script src="js/demo.js"></script>
 </html>
