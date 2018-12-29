@@ -28,4 +28,11 @@ public class StarServiceImpl implements StarService{
 		return star;
 	}
 
+	@Override
+	public List<Star> findUserStar(int uid) {
+		// TODO Auto-generated method stub
+		List<Star> userStars = starMapper.findUserStar(uid);
+		return userStars;
+	}
+
 }

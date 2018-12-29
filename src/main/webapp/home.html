@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>个人中心</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <link type="text/css" href="css1/bootstrap.min2.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/demo.css">
 <link rel="stylesheet" href="css/global.css" type="text/css" />
+<script type="text/javascript" src="js/include.js"></script>
 
 </head>
 <body>
@@ -18,7 +20,7 @@
       <div class="logos"><a href="index.html"><img src="images/lg.png"  width="226" height="66"/></a></div>
       <div class="navs">
         <ul id="flip_menu1">
-           <li><A href="login.html">登陆</A></li>
+           <li><A href="login.html" class="users">登陆</A></li>
           <li><A href="contact.html">联系</A></li>
           <li><A href="about.html">关于</A></li>
           <li><A href="works.html">案例</A></li>
@@ -55,8 +57,8 @@
 							<img src="images/laodi.jpg" style="height:100px;" class="img-thumbnail">
 						</div>
 						<div class="col-md-7">
-							<span style="font-size: 20px;">用户名：</span><br /><br />
-							<span style="font-size: 20px;">手机号：</span>&nbsp;
+							<span style="font-size: 20px;">用户名：<span id="admins"></span></span><br /><br />
+							<span style="font-size: 20px;">手机号：<span id="adminphone"></span></span>&nbsp;
 							<a href="collect.html"><button style="float: right;width: 100px;height: 50px;font-size:21px; margin-top: -20px;margin-right: -150px;background-image:url(images/bg4a.jpg);color: white; ">
 							我的收藏</button></a>
 						</div>
@@ -173,6 +175,18 @@
 	<script type="text/javascript" src="js1/switch-need1.js"></script>
 	<script type="text/javascript" src="js1/bootstrap-switch.min.js"></script>
 	<script type="text/javascript" src="js1/switch-need2.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$.post(
+				"selectUsersById",
+				function(data) {
+					var jsons=JSON.parse(data);
+					$("#admins").html(jsons.uname);
+					$("#adminphone").html(jsons.uphone);
+				}
+			)
+		});
+	</script>
 <br /><br /><br /><br />
 
 </body>

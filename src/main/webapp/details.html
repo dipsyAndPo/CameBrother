@@ -13,6 +13,7 @@
 <script type="text/javascript" src="js/jquery.scrollto.js"></script><!--案例控制置顶-->
 <script type="text/javascript" src="js/flipmenu-min.js"></script>
 <script type="text/javascript" language="javascript" src="js/index2.js"></script>
+<script type="text/javascript" src="js/include.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var menu1 = new Flipmenu("flip_menu1");
@@ -38,7 +39,7 @@
 				treadNum=jsons.tread;
 				button_bodys+="<button id='praiseNum' onclick='javascrtpt:praise()' style='background-image: url(img/11.jpg);width: 49px; height: 45px;border: 0;'></button><span id='insertPraiseNum'>"+jsons.praise+"</span>&nbsp;&nbsp;"+
 				"<button id='treadNum' onclick='javascrtpt:tread()' style='background-image: url(img/22.jpg);width: 49px; height: 45px;border: 0;'></button><span id='insertTread'>"+jsons.tread+"</span><br /><br /><br />"+
-				"<button onclick=\"javascrtpt:window.location.href = \'"+jsons.preview+"\'\" type='#' style='background-image: url(img/q1.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
+				"<button onclick=\"javascrtpt:window.location.href = \'yanshi.html?mid="+jsons.mid+"\'\" type='#' style='background-image: url(img/q1.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
 				"<button id='star' onclick='insertStar()' type='#' style='background-image: url(img/q2.png);width: 146px; height: 50px;'></button>&nbsp;&nbsp;&nbsp;&nbsp;"+
 				"<button onclick=\"window.location.href = \'"+jsons.download+"\'\" type='#' style='background-image: url(img/q3.png);width: 146px; height: 50px;'></button><br /><br /><br /><br /><br /><br />";
 				$("#fonts").html(font_bodys);
@@ -54,6 +55,7 @@
 				function(data) {
 					if(data=="已收藏"){
 						$("#star").attr("disabled",true);
+						$("#star").css({"background-image":"url(img/q4.png)"});
 					}
 				}
 				
@@ -70,6 +72,7 @@
 				if(data=="1"){
 					alert("收藏成功");
 					$("#star").attr("disabled",true);
+					$("#star").css({"background-image":"url(img/q4.png)"});
 			}
 			}
 		)
@@ -122,7 +125,7 @@
       <div class="logos"><a href="index.html"><img src="images/lg.png" width="226" height="66"/></a></div>
       <div class="navs">
         <ul id="flip_menu1">
-          <li><A href="login.html">登陆</A></li>
+          <li><A href="login.html" class="users">登陆</A></li>
           <li><A href="contact.html">联系</A></li>
           <li><A href="about.html">关于</A></li>
           <li><A href="works.html">案例</A></li>

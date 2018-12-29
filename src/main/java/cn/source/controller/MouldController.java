@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,7 +26,7 @@ public class MouldController {
 	String jsons;
 
 	// ajax查询全部素材
-	@RequestMapping(value = "selectAllMould", produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "selectAllMould", produces = "text/html;charset=UTF-8",method=RequestMethod.POST)
 	@ResponseBody
 	public String selectAllMould() {
 		List<Mould> mouldList = mouldService.selectAllMould();
@@ -34,7 +35,7 @@ public class MouldController {
 	}
 
 	// ajax获取点赞千前八个
-	@RequestMapping(value = "selectMouldBypraise", produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "selectMouldBypraise", produces = "text/html;charset=UTF-8",method=RequestMethod.POST)
 	@ResponseBody
 	public String selectMouldBypraise() {
 		List<Mould> mouldList = mouldService.selectMouldBypraise();
@@ -43,7 +44,7 @@ public class MouldController {
 	}
 
 	// ͨ��ID��ѯģ��
-	@RequestMapping(value = "selectMouldById", produces = "text/html;charset=UTF-8")
+	@RequestMapping(value = "selectMouldById", produces = "text/html;charset=UTF-8",method=RequestMethod.POST)
 	@ResponseBody
 	public String selectMouldById(int mid) {
 		Mould moulds = mouldService.findMouldById(mid);
@@ -53,7 +54,7 @@ public class MouldController {
 	}
 
 	// 点赞
-	@RequestMapping("mouldPraise")
+	@RequestMapping(value="mouldPraise",method=RequestMethod.POST)
 	@ResponseBody
 	public String mouldPraise(int mid) {
 		mouldService.mouldPraise(mid);
@@ -62,7 +63,7 @@ public class MouldController {
 	}
 
 	// 踩
-	@RequestMapping("mouldTread")
+	@RequestMapping(value="mouldTread",method=RequestMethod.POST)
 	@ResponseBody
 	public String mouldTread(int mid) {
 		mouldService.mouldTread(mid);
@@ -71,7 +72,7 @@ public class MouldController {
 	}
 
 	// 素材管理
-	@RequestMapping("selectMouldlist")
+	@RequestMapping(value="selectMouldlist",method=RequestMethod.POST)
 	public ModelAndView selectMouldlist(Integer tid) {
 		ModelAndView mav = new ModelAndView();
 		List<Mould> moulds = mouldService.selectMouldlist(tid);
@@ -81,7 +82,7 @@ public class MouldController {
 	}
 
 	// 删除
-	@RequestMapping("deleteByPrimaryKeyMould")
+	@RequestMapping(value="deleteByPrimaryKeyMould",method=RequestMethod.POST)
 	@ResponseBody
 	public String deleteByPrimaryKey(Integer mid) {
 		mouldService.deleteByPrimaryKey(mid);
@@ -89,7 +90,7 @@ public class MouldController {
 	}
 
 	// 修改1.
-	@RequestMapping("updateByPrimaryKeySelectiveaa")
+	@RequestMapping(value="updateByPrimaryKeySelectiveaa",method=RequestMethod.POST)
 	@ResponseBody
 	public String updateByPrimaryKeySelectiveaa(Mould mould) {
 		ModelAndView mav = new ModelAndView();

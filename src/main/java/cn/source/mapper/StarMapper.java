@@ -28,6 +28,13 @@ public interface StarMapper {
     	@Result(property="moulds",column="mId",one=@One(select="cn.source.mapper.MouldMapper.selectMouldByMid"))
     })
     Star selectByPrimaryKey(Integer mid,int uid);
+    
+    //查询用户下的收藏
+    @Select("select * from star where uId=#{uid}")
+    @Results({
+    	@Result(property="moulds",column="mId",one=@One(select="cn.source.mapper.MouldMapper.selectMouldByMid"))
+    })
+    List<Star> findUserStar(int uid);
 
     int updateByPrimaryKeySelective(Star record);
 
