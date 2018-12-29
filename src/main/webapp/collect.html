@@ -75,12 +75,12 @@
 						var bodys_show="<div class='show'>";
 						for(i in jsons){
 							bodys+=bodys_li;
-							bodys+=bodys_picBox;
+							bodys+="<a href='details.html?mid="+jsons[i].moulds.mid+"'>"+bodys_picBox;
 							bodys+=bodys_show;
-							bodys+=" <image height='180px' width='180px' src='"+jsons[i].moulds.logo+"'></image>";
+							bodys+="<image height='180px' width='180px' src='"+jsons[i].moulds.logo+"'></image>";
 							bodys+="</div>";
 							bodys+="<div class='hide'><h3>"+jsons[i].moulds.mname+"</h3></div>";
-							bodys+="</div>";
+							bodys+="</div></a>";
 							bodys+="</li>";
 						}
 						$("#insertJsons").html(bodys);

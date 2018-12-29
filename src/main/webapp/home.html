@@ -10,7 +10,22 @@
 <link rel="stylesheet" href="css/demo.css">
 <link rel="stylesheet" href="css/global.css" type="text/css" />
 <script type="text/javascript" src="js/include.js"></script>
-
+<script type="text/javascript">
+	$(function() {
+		$("#esc").click(function() {
+			$.post(
+					"userEsc"	,
+					function(data) {
+						alert(data);
+						window.location.href="index.html";
+					}
+				)
+					
+		});
+		
+	})
+	
+</script>
 </head>
 <body>
 
@@ -56,12 +71,15 @@
 						<div class="col-md-2">
 							<img src="images/laodi.jpg" style="height:100px;" class="img-thumbnail">
 						</div>
-						<div class="col-md-7">
+						<div class="col-md-7" style="width: 800px;">
 							<span style="font-size: 20px;">用户名：<span id="admins"></span></span><br /><br />
 							<span style="font-size: 20px;">手机号：<span id="adminphone"></span></span>&nbsp;
-							<a href="collect.html"><button style="float: right;width: 100px;height: 50px;font-size:21px; margin-top: -20px;margin-right: -150px;background-image:url(images/bg4a.jpg);color: white; ">
+							<a href="#"  id="esc"><button style="float: right;width: 100px;height: 50px;font-size:21px;  margin-top: -20px;margin-right: -150px;background-image:url(images/bg4a.jpg);color: white; ">
+							退出登录</button></a>
+							<a href="collect.html"  ><button  style="float: right;width: 100px;height: 50px;font-size:21px; margin-top: -20px;margin-right: 0px;background-image:url(images/bg4a.jpg);color: white; ">
 							我的收藏</button></a>
 						</div>
+						
 					</div>
 				</div>
 			</div>

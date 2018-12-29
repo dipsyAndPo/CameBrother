@@ -73,6 +73,9 @@
 					alert("收藏成功");
 					$("#star").attr("disabled",true);
 					$("#star").css({"background-image":"url(img/q4.png)"});
+			}else{
+				alert("请先登录");
+				window.location.href="login.html";
 			}
 			}
 		)

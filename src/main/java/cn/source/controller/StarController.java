@@ -27,9 +27,14 @@ public class StarController {
 	@ResponseBody
 	public String insertStar(Star star,HttpSession session) {
 		Users users= (Users) session.getAttribute("users");
-		star.setUser(users);
-		int i = starService.insert(star);
-		jsons="1";
+		if(users==null) {
+			jsons="0";
+		}else {
+			star.setUser(users);
+			int i = starService.insert(star);
+			jsons="1";
+		}
+		
 		return jsons;
 	}
 	
