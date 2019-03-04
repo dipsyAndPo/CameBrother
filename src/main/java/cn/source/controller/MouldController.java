@@ -72,7 +72,7 @@ public class MouldController {
 	}
 
 	// 素材管理
-	@RequestMapping(value="selectMouldlist",method=RequestMethod.POST)
+	@RequestMapping(value="selectMouldlist")
 	public ModelAndView selectMouldlist(Integer tid) {
 		ModelAndView mav = new ModelAndView();
 		List<Mould> moulds = mouldService.selectMouldlist(tid);
